@@ -110,26 +110,25 @@
 
 \begin{frame}
     \frametitle{Agglomeration}
-    \def\factor{0.8}
-    \movie[
-    width=\textwidth,
-    height=\textheight
-    ]
-    {
-        \includegraphics[width=\factor\textwidth]{vid/assignments-placeholder.jpg}
-    }{
-        assignments.mp4
-    }
+    \def\factor{1.0}
+    \movie[%
+    width=\factor\textwidth,%
+    height=\factor\textheight,%
+    ]{\includegraphics[width=\factor\textwidth]{vid/assignments-placeholder.jpg}}{vid/assignments.mp4}
     % show video
     % backend: c9ae08b
     % bigcat:  e84388e
     % start with fragment 2660 (blue)
 \end{frame}
 
-% \begin{frame}
-%     \frametitle{Painting}
-%     show video
-% \end{frame}
+\begin{frame}
+    \frametitle{Painting}
+     \def\factor{1.0}
+    \movie[%
+    width=\factor\textwidth,%
+    height=\factor\textheight,%
+    ]{\includegraphics[width=\factor\textwidth]{vid/paint-placeholder.jpg}}{vid/paint.mp4}
+\end{frame}
 
 %     \def\colorOne{red}
 %     \def\colorTwo{blue}
