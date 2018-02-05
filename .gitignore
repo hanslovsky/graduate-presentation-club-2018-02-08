@@ -1,0 +1,9 @@
+*.pdf
+*.log
+*.toc
+*.snm
+*.md5
+*.dpth
+*.aux
+*.auxlock
+*.nav
