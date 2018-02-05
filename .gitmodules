@@ -1,0 +1,4 @@
+[submodule "Beamer-Theme-Janelia"]
+	path = Beamer-Theme-Janelia
+	url = https://github.com/saalfeldlab/Beamer-Theme-Janelia
+	branch = master

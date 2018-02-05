@@ -1,0 +1,51 @@
+\begin{tikzpicture}
+    \visible<1-3>{
+        \node[] (needs-merge) {\includegraphics[width=3cm]{needs-merge.png}};
+    }
+
+    \visible<2->{
+        \node[xshift=10cm] (server) {\includegraphics[width=3cm]{server.pdf}};
+    }
+
+    \visible<2> {
+        \draw[black,thick] (needs-merge) edge[->]  node[yshift=3,xshift=-15,above,fill=magenta, minimum width=0.5cm, minimum height=0.5cm] (m1) {} (server);
+        \node[fill=green, minimum width=0.5cm, minimum height=0.5cm,anchor=west] (m2) at (m1.east) {};
+        \node[anchor=east] (left-side) at (m1.west) {Merge:};
+    }
+
+    \visible<3> {
+        \draw[black,thick] (server) edge[->]  node[yshift=3,xshift=-15,above,fill=magenta, minimum width=0.5cm, minimum height=0.5cm] (m1) {} (needs-merge);
+        \node[fill=green, minimum width=0.5cm, minimum height=0.5cm,anchor=west] (m2) at (m1.east) {};
+        \node[fill=cyan, minimum width=0.5cm, minimum height=0.5cm,anchor=west,xshift=30] (result) at (m2.east) {};
+        \draw[black,thick] (m2) edge[->] (result);
+    }
+
+    \visible<4> {
+        \node[] (merged) {\includegraphics[width=3cm]{merged.png}};
+    }
+
+ \visible<5-7>{
+        \node[] (needs-split) {\includegraphics[width=3cm]{needs-split.png}};
+    }
+
+    \visible<6> {
+        \draw[black,thick] (needs-split) edge[->]  node[yshift=3,xshift=-15,above,fill=green, minimum width=0.5cm, minimum height=0.5cm] (m1) {} (server);
+        \node[anchor=east] (left-side) at (m1.west) {Split:};
+    }
+
+    \visible<7> {
+        \draw[black,thick] (server) edge[->]  node[yshift=3,xshift=-15,above,fill=green, minimum width=0.5cm, minimum height=0.5cm] (m1) {} (needs-split);
+        \node[fill=magenta, minimum width=0.5cm, minimum height=0.5cm,anchor=west,xshift=30] (result1) at (m1.east) {};
+        \node[fill=green, minimum width=0.5cm, minimum height=0.5cm,anchor=west,anchor=west] (result2) at (result1.east) {};
+        \draw[black,thick] (m1) edge[->] (result1);
+    }
+
+    \visible<8> {
+        \node[] (split) {\includegraphics[width=3cm]{split.png}};
+    }
+    
+\end{tikzpicture}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../main"
+%%% End:
