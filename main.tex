@@ -2,6 +2,8 @@
 
 \usepackage{graphicx}
 \usepackage{import}
+\usepackage{media9}
+\usepackage{multimedia}
 \usepackage{tikz}
 \usetikzlibrary{backgrounds}
 % \usetikzlibrary{external}
@@ -108,49 +110,55 @@
 
 \begin{frame}
     \frametitle{Agglomeration}
+    \def\factor{0.8}
+    \movie[
+    width=\textwidth,
+    height=\textheight
+    ]
+    {
+        \includegraphics[width=\factor\textwidth]{vid/assignments-placeholder.jpg}
+    }{
+        assignments.mp4
+    }
     % show video
     % backend: c9ae08b
     % bigcat:  e84388e
     % start with fragment 2660 (blue)
 \end{frame}
 
-\begin{frame}
-    \frametitle{Painting}
-    show video
-\end{frame}
+% \begin{frame}
+%     \frametitle{Painting}
+%     show video
+% \end{frame}
 
-    \def\colorOne{red}
-    \def\colorTwo{blue}
-    \def\colorThree{yellow}
-    \def\colorFour{green}
-    \def\colorFive{magenta}
-    \def\cellSize{1.4em}
-\begin{frame}
-    \frametitle{Painting}
-    \subimport{fig/}{paint}
-\end{frame}
+%     \def\colorOne{red}
+%     \def\colorTwo{blue}
+%     \def\colorThree{yellow}
+%     \def\colorFour{green}
+%     \def\colorFive{magenta}
+%     \def\cellSize{1.4em}
+% \begin{frame}
+%     \frametitle{Painting}
+%     \subimport{fig/}{paint}
+% \end{frame}
 
-\begin{frame}
-    \frametitle{Painting}
-\end{frame}
+% \begin{frame}
+%     \frametitle{Painting}
+%     \subimport{fig/}{paint-continued}
+% \end{frame}
 
-\begin{frame}
-    \frametitle{Mesh Generation}
-    show video
-\end{frame}
+% \begin{frame}
+%     \frametitle{Mesh Generation}
+%     show video
+% \end{frame}
 
-\begin{frame}
-    \frametitle{Mesh Generation}
-    \centering
-    \begin{tikzpicture}
-        \subimport{fig/}{mesh-cache}
-    \end{tikzpicture}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Agglomeration}
-    Show video
-\end{frame}
+% \begin{frame}
+%     \frametitle{Mesh Generation}
+%     \centering
+%     \begin{tikzpicture}
+%         \subimport{fig/}{mesh-cache}
+%     \end{tikzpicture}
+% \end{frame}
 
 
 
