@@ -44,7 +44,6 @@
 
 \begin{frame}
     \frametitle{Circuit Reconstruction}
-    \centering
     \only<1>{
         \begin{tikzpicture}
             \node[anchor=south west] (diagram) {\includegraphics[width=0.6\textwidth]{fig/circuit-diagram.pdf}};
@@ -70,7 +69,6 @@
 
 \begin{frame}
     \frametitle{Automatic Reconstruction}
-    \centering
     \begin{tikzpicture}
         \node[anchor=south west] (pipeline) {\includegraphics{fig/reconstruction-pipeline.pdf}};
         \begin{scope}[x={(pipeline.south east)},y={(pipeline.north west)}]
@@ -78,6 +76,10 @@
                 \node[red,ultra thick] (ml) at (0.5,-0.2) {Machine Learning};
                 \draw[red,ultra thick] (0.22,0.5) ellipse (0.07 and 0.25);
                 \draw[thick,red] (ml.west) edge [->,out=180,in=270] (0.22, 0.2);
+            }
+            \visible<3->{
+                \draw[red,ultra thick] (0.77,0.5) ellipse (0.07 and 0.25);
+                \draw[thick,red] (ml.east) edge [->,out=0,in=270] (0.77, 0.2);
             }
         \end{scope}
     \end{tikzpicture}
@@ -88,6 +90,49 @@
         Funke \emph{et al.} ``A deep structured learning approach toward automating connectome reconstruction from 3D electron micrographs'' (2017). arXiv 1709.0297
     }
 \end{frame}
+
+
+\begin{frame}
+    \frametitle{CREMI}
+    \only<1>{
+        \begin{tikzpicture}[remember picture,overlay]
+            \node[] at (current page.center) {\includegraphics[width=\paperwidth]{fig/cremi.png}};
+        \end{tikzpicture}
+    }
+
+    \only<2>{
+        \includegraphics[width=\columnwidth]{fig/challenge-pixels-2.pdf}
+    }
+
+    \begin{textblock}{3}(11.4,0)
+        \tiny\includegraphics[width=1cm]{fig/people/funke.png}
+        
+        J. Funke%
+    \end{textblock}%
+    
+    \begin{textblock}{3}(12.6,0)
+        \tiny\includegraphics[width=1cm]{fig/people/bock.jpeg}
+        
+        D. Bock%
+    \end{textblock}%
+    
+    \begin{textblock}{3}(13.8,0)
+        \tiny\includegraphics[width=1cm]{fig/people/perlman.jpeg}
+        
+        E. Perlman%
+    \end{textblock}%
+    
+    \begin{textblock}{3}(15,0)
+        \tiny\includegraphics[width=1cm]{fig/people/turaga.jpg}
+        
+        S. Turaga%
+    \end{textblock}%
+    
+    \begin{textblock}{3}(0.5,14)
+        {\color{white}\Huge\bf cremi.org}
+    \end{textblock}
+\end{frame}
+
 
 \begin{frame}
     \frametitle{BigCAT}
