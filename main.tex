@@ -31,7 +31,7 @@
 \subtitle{Toward Streamlined Proofreading}
 % \subtitle{A custom modern minimalist Beamer theme designed from scratch}
 \author{Philipp Hanslovsky}
-\date{February 18, 2018}
+\date{February 8, 2018}
 
 \setcounter{showSlideNumbers}{1}
 
@@ -44,19 +44,49 @@
 
 \begin{frame}
     \frametitle{Circuit Reconstruction}
-    \includegraphics{fig/reconstruction-pipeline.pdf}
-    tbd: reference for this figure
-    % \begin{itemize}
-    %       \item Dense reconstruction in EM data
-    %       \item Connectivity graph
-    %       \item Avoid critical errors
-    % \end{itemize}
-    % \begin{itemize}
-    %       \item Machine Learning Algorithms
-    %       \item Neuron boundary prediction
-    %       \item Agglomeration
-    %       \item Proof Reading
-    % \end{itemize}
+    \centering
+    \only<1>{
+        \begin{tikzpicture}
+            \node[anchor=south west] (diagram) {\includegraphics[width=0.6\textwidth]{fig/circuit-diagram.pdf}};
+            \node[anchor=north,font=\tiny] at (diagram.south) {https://upload.wikimedia.org/wikipedia/commons/7/76/4\_bit\_counter.svg};%% https://upload.wikimedia.org/wikipedia/commons/7/76/4_bit_counter.svg};
+            % \begin{scope}[x={(diagram.south east)},y={(diagram.north west)}]
+            %     \visible<2->{
+            %     \draw[red] (0.5,0.2) ellipse (2mm and 5mm);
+            % }
+            % \end{scope}
+        \end{tikzpicture}
+    }
+    \only<2>{
+        \begin{tikzpicture}
+            \node[] (neuron) {\includegraphics[width=0.4\linewidth]{fig/neuron.png}};
+            \node[anchor=north,font=\tiny] at (neuron.south) {https://www.wikipedia.org/};
+            % https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Neuron_Hand-tuned.svg/400px-Neuron_Hand-tuned.svg.png
+            \node[anchor=north west] (synapse) at ([xshift=50]neuron.north east) {\includegraphics[width=0.2\linewidth]{fig/synapse.png}};
+            \node[anchor=north,font=\tiny] at (synapse.south) {https://psychlopedia.wikispaces.com};
+            % https://psychlopedia.wikispaces.com/file/view/syn.gif/325862020/syn.gif
+        \end{tikzpicture}
+    }
+\end{frame}
+
+\begin{frame}
+    \frametitle{Automatic Reconstruction}
+    \centering
+    \begin{tikzpicture}
+        \node[anchor=south west] (pipeline) {\includegraphics{fig/reconstruction-pipeline.pdf}};
+        \begin{scope}[x={(pipeline.south east)},y={(pipeline.north west)}]
+            \visible<2->{
+                \node[red,ultra thick] (ml) at (0.5,-0.2) {Machine Learning};
+                \draw[red,ultra thick] (0.22,0.5) ellipse (0.07 and 0.25);
+                \draw[thick,red] (ml.west) edge [->,out=180,in=270] (0.22, 0.2);
+            }
+        \end{scope}
+    \end{tikzpicture}
+
+    \vfill
+    \visible<1->{
+        \tiny
+        Funke \emph{et al.} ``A deep structured learning approach toward automating connectome reconstruction from 3D electron micrographs'' (2017). arXiv 1709.0297
+    }
 \end{frame}
 
 \begin{frame}
@@ -126,135 +156,135 @@
 %     \end{tikzpicture}%
 % \end{frame}
 
-\begin{frame}
-    \frametitle{Agglomeration}
+% \begin{frame}
+%     \frametitle{Agglomeration}
 
-    \begin{tikzpicture}[overlay]
-        \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
-        \coordinate (width) at (\the\paperwidth,\the\paperheight);
-        \fill[black,anchor=west,inner sep=0] ($(0,0)-(width)$) rectangle (\the\paperwidth,\the\paperheight);
-    \end{tikzpicture}%
+%     \begin{tikzpicture}[overlay]
+%         \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+%         \coordinate (width) at (\the\paperwidth,\the\paperheight);
+%         \fill[black,anchor=west,inner sep=0] ($(0,0)-(width)$) rectangle (\the\paperwidth,\the\paperheight);
+%     \end{tikzpicture}%
     
-    \def\factor{1.0}
-    \movie[%
-    width=\factor\textwidth,%
-    height=\factor\textheight,%
-    ]{}{vid/assignments.mp4}
-    % ]{\includegraphics[width=\factor\textwidth]{vid/assignments-placeholder.jpg}}{vid/assignments.mp4}
-    % show video
-    % backend: c9ae08b
-    % bigcat:  e84388e
-    % start with fragment 2660 (blue)
-\end{frame}
+%     \def\factor{1.0}
+%     \movie[%
+%     width=\factor\textwidth,%
+%     height=\factor\textheight,%
+%     ]{}{vid/assignments.mp4}
+%     % ]{\includegraphics[width=\factor\textwidth]{vid/assignments-placeholder.jpg}}{vid/assignments.mp4}
+%     % show video
+%     % backend: c9ae08b
+%     % bigcat:  e84388e
+%     % start with fragment 2660 (blue)
+% \end{frame}
 
-\begin{frame}
-    \frametitle{Agglomeration}
-    \subimport{fig/}{agglomeration}
-\end{frame}
+% \begin{frame}
+%     \frametitle{Agglomeration}
+%     \subimport{fig/}{agglomeration}
+% \end{frame}
 
-\begin{frame}
-    \frametitle{Agglomeration -- Actions}
-    \begin{itemize}
-          \item Merge two fragments
-          \item Split two fragments
-          \item Confirm visible segment
-          \item Confirm two visible segments
-    \end{itemize}
-\end{frame}
+% \begin{frame}
+%     \frametitle{Agglomeration -- Actions}
+%     \begin{itemize}
+%           \item Merge two fragments
+%           \item Split two fragments
+%           \item Confirm visible segment
+%           \item Confirm two visible segments
+%     \end{itemize}
+% \end{frame}
 
-\begin{frame}
-    \frametitle{Painting}
+% \begin{frame}
+%     \frametitle{Painting}
 
-    \begin{tikzpicture}[overlay]
-        \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
-        \coordinate (width) at (\the\paperwidth,\the\paperheight);
-        \fill[black,anchor=west,inner sep=0] ($(0,0)-(width)$) rectangle (\the\paperwidth,\the\paperheight);
-    \end{tikzpicture}%
+%     \begin{tikzpicture}[overlay]
+%         \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+%         \coordinate (width) at (\the\paperwidth,\the\paperheight);
+%         \fill[black,anchor=west,inner sep=0] ($(0,0)-(width)$) rectangle (\the\paperwidth,\the\paperheight);
+%     \end{tikzpicture}%
 
-    \def\factor{1.0}
-    \movie[%
-    width=\factor\textwidth,%
-    height=\factor\textheight,%
-    ]{}{vid/paint.mp4}
-    % ]{\includegraphics[width=\factor\textwidth]{vid/paint-placeholder.jpg}}{vid/paint.mp4}
-\end{frame}
+%     \def\factor{1.0}
+%     \movie[%
+%     width=\factor\textwidth,%
+%     height=\factor\textheight,%
+%     ]{}{vid/paint.mp4}
+%     % ]{\includegraphics[width=\factor\textwidth]{vid/paint-placeholder.jpg}}{vid/paint.mp4}
+% \end{frame}
 
-    \def\colorOne{red}
-    \def\colorTwo{blue}
-    \def\colorThree{yellow}
-    \def\colorFour{green}
-    \def\colorFive{magenta}
-    \def\cellSize{1.4em}
-\begin{frame}
-    \frametitle{Painting}
-    \subimport{fig/}{paint}
-\end{frame}
+%     \def\colorOne{red}
+%     \def\colorTwo{blue}
+%     \def\colorThree{yellow}
+%     \def\colorFour{green}
+%     \def\colorFive{magenta}
+%     \def\cellSize{1.4em}
+% \begin{frame}
+%     \frametitle{Painting}
+%     \subimport{fig/}{paint}
+% \end{frame}
 
-\begin{frame}
-    \frametitle{Painting}
-    \subimport{fig/}{paint-continued}
-\end{frame}
+% \begin{frame}
+%     \frametitle{Painting}
+%     \subimport{fig/}{paint-continued}
+% \end{frame}
 
-\begin{frame}
-    \frametitle{Mesh Generation}
-    \begin{tikzpicture}[overlay]
-        \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
-        \coordinate (width) at (\the\paperwidth,\the\paperheight);
-        \fill[black,anchor=west,inner sep=0] ($(0,0)-(width)$) rectangle (\the\paperwidth,\the\paperheight);
-    \end{tikzpicture}%
+% \begin{frame}
+%     \frametitle{Mesh Generation}
+%     \begin{tikzpicture}[overlay]
+%         \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+%         \coordinate (width) at (\the\paperwidth,\the\paperheight);
+%         \fill[black,anchor=west,inner sep=0] ($(0,0)-(width)$) rectangle (\the\paperwidth,\the\paperheight);
+%     \end{tikzpicture}%
 
-    \def\factor{1.0}
-    \movie[%
-    width=\factor\textwidth,%
-    height=\factor\textheight,%
-    ]{}{vid/mesh.mp4}
-\end{frame}
+%     \def\factor{1.0}
+%     \movie[%
+%     width=\factor\textwidth,%
+%     height=\factor\textheight,%
+%     ]{}{vid/mesh.mp4}
+% \end{frame}
 
-\begin{frame}
-    \frametitle{Mesh Generation}
-    \centering
-    \vspace{3em}
-    \subimport{fig/}{mesh-cache}
-\end{frame}
+% \begin{frame}
+%     \frametitle{Mesh Generation}
+%     \centering
+%     \vspace{3em}
+%     \subimport{fig/}{mesh-cache}
+% \end{frame}
 
-\begin{frame}
-    \frametitle{Cool Hacks}
-    \begin{tikzpicture}[overlay]
-        \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
-        \coordinate (width) at (\the\paperwidth,\the\paperheight);
-        \fill[black,anchor=west,inner sep=0] ($(0,0)-(width)$) rectangle (\the\paperwidth,\the\paperheight);
-    \end{tikzpicture}%
+% \begin{frame}
+%     \frametitle{Cool Hacks}
+%     \begin{tikzpicture}[overlay]
+%         \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+%         \coordinate (width) at (\the\paperwidth,\the\paperheight);
+%         \fill[black,anchor=west,inner sep=0] ($(0,0)-(width)$) rectangle (\the\paperwidth,\the\paperheight);
+%     \end{tikzpicture}%
 
-    \def\factor{1.0}
-    \movie[%
-    width=\factor\textwidth,%
-    height=\factor\textheight,%
-    ]{}{vid/bigcat-synapses.mp4}
-\end{frame}
+%     \def\factor{1.0}
+%     \movie[%
+%     width=\factor\textwidth,%
+%     height=\factor\textheight,%
+%     ]{}{vid/bigcat-synapses.mp4}
+% \end{frame}
 
-\begin{frame}
-    \frametitle{Name}
-    tbd
-    BigCAT may be known under a different name in the future:
-    https://github.com/saalfeldlab/bigcat/issues/23
-\end{frame}
+% \begin{frame}
+%     \frametitle{Name}
+%     tbd
+%     BigCAT may be known under a different name in the future:
+%     https://github.com/saalfeldlab/bigcat/issues/23
+% \end{frame}
 
-\begin{frame}
-    \frametitle{Links}
-    \begin{itemize}
-          \item[BigCAT] 
-    \end{itemize}
-\end{frame}
+% \begin{frame}
+%     \frametitle{Links}
+%     \begin{itemize}
+%           \item[BigCAT] 
+%     \end{itemize}
+% \end{frame}
 
-\begin{frame}
-    \frametitle{Acknowledgements}
-    tbd
-    \begin{itemize}
-          \item Saalfeld lab
-          \item Tobias
-          \item Jan, Vanessa
-    \end{itemize}
-\end{frame}
+% \begin{frame}
+%     \frametitle{Acknowledgements}
+%     tbd
+%     \begin{itemize}
+%           \item Saalfeld lab
+%           \item Tobias
+%           \item Jan, Vanessa
+%     \end{itemize}
+% \end{frame}
 
     
 
