@@ -299,20 +299,20 @@
         \end{tabular}
     \end{table}
 \end{frame}
-% \begin{frame}
-%     \frametitle{Mesh Generation}
-%     \begin{tikzpicture}[overlay]
-%         \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
-%         \coordinate (width) at (\the\paperwidth,\the\paperheight);
-%         \fill[black,anchor=west,inner sep=0] ($(0,0)-(width)$) rectangle (\the\paperwidth,\the\paperheight);
-%     \end{tikzpicture}%
+\begin{frame}
+    \frametitle{Mesh Generation}
+    \begin{tikzpicture}[overlay]
+        \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+        \coordinate (width) at (\the\paperwidth,\the\paperheight);
+        \fill[black,anchor=west,inner sep=0] ($(0,0)-(width)$) rectangle (\the\paperwidth,\the\paperheight);
+    \end{tikzpicture}%
 
-%     \def\factor{1.0}
-%     \movie[%
-%     width=\factor\textwidth,%
-%     height=\factor\textheight,%
-%     ]{}{vid/mesh.mp4}
-% \end{frame}
+    \def\factor{1.0}
+    \movie[%
+    width=\factor\textwidth,%
+    height=\factor\textheight,%
+    ]{}{vid/mesh.mp4}
+\end{frame}
 
 % \begin{frame}
 %     \frametitle{Mesh Generation}
@@ -321,27 +321,46 @@
 %     \subimport{fig/}{mesh-cache}
 % \end{frame}
 
-% \begin{frame}
-%     \frametitle{Cool Hacks}
-%     \begin{tikzpicture}[overlay]
-%         \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
-%         \coordinate (width) at (\the\paperwidth,\the\paperheight);
-%         \fill[black,anchor=west,inner sep=0] ($(0,0)-(width)$) rectangle (\the\paperwidth,\the\paperheight);
-%     \end{tikzpicture}%
+\begin{frame}
+    \frametitle{Extensibility}
+    \small
+    \vspace{1cm}
+    \begin{table}
+        \centering
+        \begin{tabular}{lccc}
+                                       & BigCAT & Neuroglancer & BigCAT v2 \\
+          Arbitrary cross-sections     & \gcmark & \gcmark & \gcmark \\
+          Orthogonal views             & \rxmark & \gcmark & \gcmark \\ 
+          3D visualization             & \rxmark & \gcmark & \gcmark \\ 
+          3D model generation          & \rxmark & \rxmark & \gcmark \\ 
+          Painting                     & \gcmark & \rxmark & \gcmark \\ 
+          Multi-resolution painting         & \rxmark & \rxmark & \gcmark \\ 
+          Semi-automatic agglomeration & \rxmark & \rxmark & \gcmark \\ 
+          \rowcolor{black!20}  Extensibility                & \rxmark & \ycmark & \gcmark \\
+        \end{tabular}
+    \end{table}
+\end{frame}
+\begin{frame}
+    \frametitle{Cool Hacks}
+    \begin{tikzpicture}[overlay]
+        \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+        \coordinate (width) at (\the\paperwidth,\the\paperheight);
+        \fill[black,anchor=west,inner sep=0] ($(0,0)-(width)$) rectangle (\the\paperwidth,\the\paperheight);
+    \end{tikzpicture}%
 
-%     \def\factor{1.0}
-%     \movie[%
-%     width=\factor\textwidth,%
-%     height=\factor\textheight,%
-%     ]{}{vid/bigcat-synapses.mp4}
-% \end{frame}
+    \def\factor{1.0}
+    \movie[%
+    width=\factor\textwidth,%
+    height=\factor\textheight,%
+    ]{}{vid/bigcat-synapses.mp4}
+\end{frame}
 
-% \begin{frame}
-%     \frametitle{Name}
-%     tbd
-%     BigCAT may be known under a different name in the future:
-%     https://github.com/saalfeldlab/bigcat/issues/23
-% \end{frame}
+\begin{frame}
+    \frametitle{Name}
+    tbd
+    BigCAT may be known under a different name in the future:
+    https://github.com/saalfeldlab/bigcat/issues/23
+\end{frame}
 
 % \begin{frame}
 %     \frametitle{Links}
