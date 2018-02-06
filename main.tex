@@ -4,6 +4,10 @@
 \usepackage{import}
 \usepackage{media9}
 \usepackage{multimedia}
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
 \usepackage{tikz}
 \usetikzlibrary{3d}
 \usetikzlibrary{backgrounds}
@@ -40,70 +44,107 @@
 
 \begin{frame}
     \frametitle{Circuit Reconstruction}
+    \includegraphics{fig/reconstruction-pipeline.pdf}
+    tbd: reference for this figure
+    % \begin{itemize}
+    %       \item Dense reconstruction in EM data
+    %       \item Connectivity graph
+    %       \item Avoid critical errors
+    % \end{itemize}
+    % \begin{itemize}
+    %       \item Machine Learning Algorithms
+    %       \item Neuron boundary prediction
+    %       \item Agglomeration
+    %       \item Proof Reading
+    % \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{BigCAT}
+    % \begin{itemize}
+    %       \item Arbitrary Re-Slicing
+    %       \item Painting (!!)
+    %       \item Agglomeration
+    %       \item Annotations
+    %       \item Potential for heavy workload tasks on client
+    % \end{itemize}
+
+    \begin{tikzpicture}[overlay]
+        \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+        \coordinate (width) at (\the\paperwidth,\the\paperheight);
+        \fill[black,anchor=west,inner sep=0] ($(0,0)-(width)$) rectangle (\the\paperwidth,\the\paperheight);
+    \end{tikzpicture}%
     
-    \begin{itemize}
-          \item Dense reconstruction in EM data
-          \item Connectivity graph
-          \item Avoid critical errors
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Circuit Reconstruction}
-    \begin{itemize}
-          \item Machine Learning Algorithms
-          \item Neuron boundary prediction
-          \item Agglomeration
-          \item Proof Reading
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \frametitle{BigCAT -- Yay!}
-    \begin{itemize}
-          \item Arbitrary Re-Slicing
-          \item Painting (!!)
-          \item Agglomeration
-          \item Annotations
-          \item Potential for heavy workload tasks on client
-    \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \frametitle{BigCAT -- Nay!}
-    \begin{itemize}
-          \item No Ortho views
-          \item Painting not multi-resolution
-          \item No 3D
-          \item Limited to a very specific use case
-    \end{itemize}
+    \def\factor{1.0}
+    \movie[%
+    width=\factor\textwidth,%
+    height=\factor\textheight,%
+    ]{\includegraphics[width=\factor\textwidth]{vid/bigcat-cremi-placeholder.jpg}}{vid/bigcat-cremi-b-aligned.mov}
 \end{frame}
 
 \begin{frame}
     \frametitle{BigCAT -- Want!}
     \begin{itemize}
-          \item Ortho views with arbitrary reslicing
-          \item 3D visualization of meshes (potentially generated on the fly)
-          \item Multi-resolution painting
-          \item (Guided) agglomeration with solver server
-          \item Broadly applicable and extensible
+          \item<1-> Ortho views with arbitrary reslicing
+          \item<2-> 3D visualization of meshes
+        \begin{itemize}
+              \item<3-> Mesh generation on the fly for arbitrary data sets 
+        \end{itemize}
+          \item<4-> Multi-resolution painting
+          \item<5-> (Guided) agglomeration with solver server
+          \item<6-> Broadly applicable and extensible
+        \begin{itemize}
+              \item<7-> Heavy number crunching on client side
+        \end{itemize}
     \end{itemize}
 \end{frame} 
 
 \begin{frame}
-    \frametitle{Neuroglancer}
+    \frametitle{Why not Neuroglancer}
     \begin{itemize}
-          \item Arbitrary Re-Slicing
-          \item 3D mesh rendering
-          \item Extensible
-          \item No Painting
-          \item No Neuron Mesh Generation for arbitrary data sets 
-% (only for python in-memory volumes)
-          \item Heavy number crunching on client side limited (memory and threading) \fbox{\includegraphics[width=4cm]{fig/chrome-heap-limit.png}}
-          \item https://github.com/google/neuroglancer
+          \item<1->[\color{green}\cmark] Ortho views with arbitrary reslicing
+          \item<2->[\only<2>{\color{green}\cmark}\only<3->{\color{yellow}\cmark}] 3D visualization of meshes
+        \begin{itemize}
+              \item<3->[\color{red}\xmark] Mesh generation on the fly only for python in memory data sets
+        \end{itemize}
+          \item<4->[\color{red}\xmark] Multi-resolution painting
+          \item<5->[\color{red}\xmark] (Guided) agglomeration with solver server
+          \item<6->[\only<6>{\color{green}\cmark}\only<7->{\color{yellow}\cmark}] Broadly applicable and extensible
+        \begin{itemize}
+              \item<7->[\color{red}\xmark] Heavy number crunching on client side limited \\ \fbox{\includegraphics[width=4cm]{fig/chrome-heap-limit.png}}
+        \end{itemize}
+    \end{itemize}
 % https://stackoverflow.com/a/23705446/1725687
 % https://groups.google.com/a/chromium.org/forum/#!topic/chromium-dev/TUddM_rtgi4
-    \end{itemize}
+\end{frame}
+
+% \begin{frame}
+%     \begin{tikzpicture}[overlay]
+%         \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+%         \coordinate (width) at (\the\paperwidth,\the\paperheight);
+%         \fill[black,anchor=west,inner sep=0] ($(0,0)-(width)$) rectangle (\the\paperwidth,\the\paperheight);
+%     \end{tikzpicture}%
+% \end{frame}
+
+\begin{frame}
+    \frametitle{Agglomeration}
+
+    \begin{tikzpicture}[overlay]
+        \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+        \coordinate (width) at (\the\paperwidth,\the\paperheight);
+        \fill[black,anchor=west,inner sep=0] ($(0,0)-(width)$) rectangle (\the\paperwidth,\the\paperheight);
+    \end{tikzpicture}%
+    
+    \def\factor{1.0}
+    \movie[%
+    width=\factor\textwidth,%
+    height=\factor\textheight,%
+    ]{}{vid/assignments.mp4}
+    % ]{\includegraphics[width=\factor\textwidth]{vid/assignments-placeholder.jpg}}{vid/assignments.mp4}
+    % show video
+    % backend: c9ae08b
+    % bigcat:  e84388e
+    % start with fragment 2660 (blue)
 \end{frame}
 
 \begin{frame}
@@ -112,25 +153,30 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Agglomeration}
-    \def\factor{1.0}
-    \movie[%
-    width=\factor\textwidth,%
-    height=\factor\textheight,%
-    ]{\includegraphics[width=\factor\textwidth]{vid/assignments-placeholder.jpg}}{vid/assignments.mp4}
-    % show video
-    % backend: c9ae08b
-    % bigcat:  e84388e
-    % start with fragment 2660 (blue)
+    \frametitle{Agglomeration -- Actions}
+    \begin{itemize}
+          \item Merge two fragments
+          \item Split two fragments
+          \item Confirm visible segment
+          \item Confirm two visible segments
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
     \frametitle{Painting}
-     \def\factor{1.0}
+
+    \begin{tikzpicture}[overlay]
+        \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+        \coordinate (width) at (\the\paperwidth,\the\paperheight);
+        \fill[black,anchor=west,inner sep=0] ($(0,0)-(width)$) rectangle (\the\paperwidth,\the\paperheight);
+    \end{tikzpicture}%
+
+    \def\factor{1.0}
     \movie[%
     width=\factor\textwidth,%
     height=\factor\textheight,%
-    ]{\includegraphics[width=\factor\textwidth]{vid/paint-placeholder.jpg}}{vid/paint.mp4}
+    ]{}{vid/paint.mp4}
+    % ]{\includegraphics[width=\factor\textwidth]{vid/paint-placeholder.jpg}}{vid/paint.mp4}
 \end{frame}
 
     \def\colorOne{red}
@@ -139,20 +185,30 @@
     \def\colorFour{green}
     \def\colorFive{magenta}
     \def\cellSize{1.4em}
-% \begin{frame}
-%     \frametitle{Painting}
-%     \subimport{fig/}{paint}
-% \end{frame}
+\begin{frame}
+    \frametitle{Painting}
+    \subimport{fig/}{paint}
+\end{frame}
 
-% \begin{frame}
-%     \frametitle{Painting}
-%     \subimport{fig/}{paint-continued}
-% \end{frame}
+\begin{frame}
+    \frametitle{Painting}
+    \subimport{fig/}{paint-continued}
+\end{frame}
 
-% \begin{frame}
-%     \frametitle{Mesh Generation}
-%     show video
-% \end{frame}
+\begin{frame}
+    \frametitle{Mesh Generation}
+    \begin{tikzpicture}[overlay]
+        \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+        \coordinate (width) at (\the\paperwidth,\the\paperheight);
+        \fill[black,anchor=west,inner sep=0] ($(0,0)-(width)$) rectangle (\the\paperwidth,\the\paperheight);
+    \end{tikzpicture}%
+
+    \def\factor{1.0}
+    \movie[%
+    width=\factor\textwidth,%
+    height=\factor\textheight,%
+    ]{}{vid/mesh.mp4}
+\end{frame}
 
 \begin{frame}
     \frametitle{Mesh Generation}
@@ -160,6 +216,47 @@
     \vspace{3em}
     \subimport{fig/}{mesh-cache}
 \end{frame}
+
+\begin{frame}
+    \frametitle{Cool Hacks}
+    \begin{tikzpicture}[overlay]
+        \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+        \coordinate (width) at (\the\paperwidth,\the\paperheight);
+        \fill[black,anchor=west,inner sep=0] ($(0,0)-(width)$) rectangle (\the\paperwidth,\the\paperheight);
+    \end{tikzpicture}%
+
+    \def\factor{1.0}
+    \movie[%
+    width=\factor\textwidth,%
+    height=\factor\textheight,%
+    ]{}{vid/bigcat-synapses.mp4}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Name}
+    tbd
+    BigCAT may be known under a different name in the future:
+    https://github.com/saalfeldlab/bigcat/issues/23
+\end{frame}
+
+\begin{frame}
+    \frametitle{Links}
+    \begin{itemize}
+          \item[BigCAT] 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Acknowledgements}
+    tbd
+    \begin{itemize}
+          \item Saalfeld lab
+          \item Tobias
+          \item Jan, Vanessa
+    \end{itemize}
+\end{frame}
+
+    
 
 
 
