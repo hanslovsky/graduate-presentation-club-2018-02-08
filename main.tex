@@ -1,4 +1,4 @@
-\documentclass[aspectratio=169]{beamer}
+\documentclass[aspectratio=169,table]{beamer}
 
 \usepackage{graphicx}
 \usepackage{import}
@@ -10,8 +10,8 @@
 \newcommand{\gcmark}{{\color{green}\cmark}}%
 \newcommand{\ycmark}{{\color{yellow}\cmark}}%
 \newcommand{\rxmark}{{\color{red}\xmark}}%
-
 \usepackage{tikz}
+
 \usetikzlibrary{3d}
 \usetikzlibrary{backgrounds}
 \usetikzlibrary{decorations.pathreplacing}
@@ -174,78 +174,95 @@
           \visible<4->{3D visualization             & \rxmark & \gcmark & \gcmark \\}                             
           \visible<5->{3D model generation          & \rxmark & \rxmark & \gcmark \\}                             
           \visible<6->{Painting                     & \gcmark & \rxmark & \gcmark \\}                             
-          \visible<7->{Multi-scale painting         & \rxmark & \rxmark & \gcmark \\}                             
+          \visible<7->{Multi-resolution painting         & \rxmark & \rxmark & \gcmark \\}                             
           \visible<8->{Semi-automatic agglomeration & \rxmark & \rxmark & \gcmark \\}                             
           \visible<9->{Extensibility                & \rxmark & \only<9>{\gcmark}\only<10->{\ycmark} & \gcmark \\}
         \end{tabular}
     \end{table}
-    \visible<10->{
+    \visible<10>{
         \begin{tikzpicture}[overlay]
             \node[draw=black] at (10cm,0cm) {\includegraphics[width=3cm]{fig/chrome-heap-limit.png}};
         \end{tikzpicture}
     }
 \end{frame}
 
-% \begin{frame}
-%     \begin{tikzpicture}[overlay]
-%         \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
-%         \coordinate (width) at (\the\paperwidth,\the\paperheight);
-%         \fill[black,anchor=west,inner sep=0] ($(0,0)-(width)$) rectangle (\the\paperwidth,\the\paperheight);
-%     \end{tikzpicture}%
-% \end{frame}
+\begin{frame}
+    \frametitle{Agglomeration}
+    \small
+    \vspace{1cm}
+    \begin{table}
+        \centering
+        \begin{tabular}{lccc}
+                                       & BigCAT & Neuroglancer & BigCAT v2 \\
+          Arbitrary cross-sections     & \gcmark & \gcmark & \gcmark \\
+          Orthogonal views             & \rxmark & \gcmark & \gcmark \\ 
+          3D visualization             & \rxmark & \gcmark & \gcmark \\ 
+          3D model generation          & \rxmark & \rxmark & \gcmark \\ 
+          Painting                     & \gcmark & \rxmark & \gcmark \\ 
+          Multi-resolution painting         & \rxmark & \rxmark & \gcmark \\ 
+          \rowcolor{black!20} Semi-automatic agglomeration & \rxmark & \rxmark & \gcmark \\ 
+          Extensibility                & \rxmark & \ycmark & \gcmark \\
+        \end{tabular}
+    \end{table}
+\end{frame}
 
-% \begin{frame}
-%     \frametitle{Agglomeration}
+\begin{frame}
+    \frametitle{Agglomeration}
 
-%     \begin{tikzpicture}[overlay]
-%         \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
-%         \coordinate (width) at (\the\paperwidth,\the\paperheight);
-%         \fill[black,anchor=west,inner sep=0] ($(0,0)-(width)$) rectangle (\the\paperwidth,\the\paperheight);
-%     \end{tikzpicture}%
+    \begin{tikzpicture}[overlay]
+        \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+        \coordinate (width) at (\the\paperwidth,\the\paperheight);
+        \fill[black,anchor=west,inner sep=0] ($(0,0)-(width)$) rectangle (\the\paperwidth,\the\paperheight);
+    \end{tikzpicture}%
     
-%     \def\factor{1.0}
-%     \movie[%
-%     width=\factor\textwidth,%
-%     height=\factor\textheight,%
-%     ]{}{vid/assignments.mp4}
-%     % ]{\includegraphics[width=\factor\textwidth]{vid/assignments-placeholder.jpg}}{vid/assignments.mp4}
-%     % show video
-%     % backend: c9ae08b
-%     % bigcat:  e84388e
-%     % start with fragment 2660 (blue)
-% \end{frame}
+    \def\factor{1.0}
+    \movie[%
+    width=\factor\textwidth,%
+    height=\factor\textheight,%
+    ]{}{vid/assignments.mp4}
+    % ]{\includegraphics[width=\factor\textwidth]{vid/assignments-placeholder.jpg}}{vid/assignments.mp4}
+    % show video
+    % backend: c9ae08b
+    % bigcat:  e84388e
+    % start with fragment 2660 (blue)
+\end{frame}
 
-% \begin{frame}
-%     \frametitle{Agglomeration}
-%     \subimport{fig/}{agglomeration}
-% \end{frame}
+\begin{frame}
+    \frametitle{Multi-Resolution Painting}
+    \small
+    \vspace{1cm}
+    \begin{table}
+        \centering
+        \begin{tabular}{lccc}
+                                       & BigCAT & Neuroglancer & BigCAT v2 \\
+          Arbitrary cross-sections     & \gcmark & \gcmark & \gcmark \\
+          Orthogonal views             & \rxmark & \gcmark & \gcmark \\ 
+          3D visualization             & \rxmark & \gcmark & \gcmark \\ 
+          3D model generation          & \rxmark & \rxmark & \gcmark \\ 
+          \rowcolor{black!20} Painting                     & \gcmark & \rxmark & \gcmark \\ 
+          \rowcolor{black!20} Multi-resolution painting         & \rxmark & \rxmark & \gcmark \\ 
+          Semi-automatic agglomeration & \rxmark & \rxmark & \gcmark \\ 
+          Extensibility                & \rxmark & \ycmark & \gcmark \\
+        \end{tabular}
+    \end{table}
+\end{frame}
 
-% \begin{frame}
-%     \frametitle{Agglomeration -- Actions}
-%     \begin{itemize}
-%           \item Merge two fragments
-%           \item Split two fragments
-%           \item Confirm visible segment
-%           \item Confirm two visible segments
-%     \end{itemize}
-% \end{frame}
+\begin{frame}
+    \frametitle{Multi-Resolution Painting}
 
-% \begin{frame}
-%     \frametitle{Painting}
+    \begin{tikzpicture}[overlay]
+        \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+        \coordinate (width) at (\the\paperwidth,\the\paperheight);
+        \fill[black,anchor=west,inner sep=0] ($(0,0)-(width)$) rectangle (\the\paperwidth,\the\paperheight);
+    \end{tikzpicture}%
 
-%     \begin{tikzpicture}[overlay]
-%         \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
-%         \coordinate (width) at (\the\paperwidth,\the\paperheight);
-%         \fill[black,anchor=west,inner sep=0] ($(0,0)-(width)$) rectangle (\the\paperwidth,\the\paperheight);
-%     \end{tikzpicture}%
-
-%     \def\factor{1.0}
-%     \movie[%
-%     width=\factor\textwidth,%
-%     height=\factor\textheight,%
-%     ]{}{vid/paint.mp4}
-%     % ]{\includegraphics[width=\factor\textwidth]{vid/paint-placeholder.jpg}}{vid/paint.mp4}
-% \end{frame}
+    \def\factor{1.0}
+    \movie[%
+    width=\factor\textwidth,%
+    height=\factor\textheight,%
+    ]{}{vid/paint.mp4}
+    % ]{\includegraphics[width=\factor\textwidth]{vid/paint-placeholder.jpg}}{vid/paint.mp4}
+\end{frame}
 
 %     \def\colorOne{red}
 %     \def\colorTwo{blue}
@@ -259,10 +276,29 @@
 % \end{frame}
 
 % \begin{frame}
-%     \frametitle{Painting}
+%     \frametitle{Multi-Resolution Painting}
 %     \subimport{fig/}{paint-continued}
 % \end{frame}
 
+\begin{frame}
+    \frametitle{3D Model Generation}
+    \small
+    \vspace{1cm}
+    \begin{table}
+        \centering
+        \begin{tabular}{lccc}
+                                       & BigCAT & Neuroglancer & BigCAT v2 \\
+          Arbitrary cross-sections     & \gcmark & \gcmark & \gcmark \\
+          Orthogonal views             & \rxmark & \gcmark & \gcmark \\ 
+          3D visualization             & \rxmark & \gcmark & \gcmark \\ 
+          \rowcolor{black!20}  3D model generation          & \rxmark & \rxmark & \gcmark \\ 
+          Painting                     & \gcmark & \rxmark & \gcmark \\ 
+          Multi-resolution painting         & \rxmark & \rxmark & \gcmark \\ 
+          Semi-automatic agglomeration & \rxmark & \rxmark & \gcmark \\ 
+          Extensibility                & \rxmark & \ycmark & \gcmark \\
+        \end{tabular}
+    \end{table}
+\end{frame}
 % \begin{frame}
 %     \frametitle{Mesh Generation}
 %     \begin{tikzpicture}[overlay]
