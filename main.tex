@@ -5,7 +5,10 @@
 \usepackage{media9}
 \usepackage{multimedia}
 \usepackage{tikz}
+\usetikzlibrary{3d}
 \usetikzlibrary{backgrounds}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{fit}
 % \usetikzlibrary{external}
 \usetikzlibrary{matrix}
 \usetikzlibrary{positioning}
@@ -130,12 +133,12 @@
     ]{\includegraphics[width=\factor\textwidth]{vid/paint-placeholder.jpg}}{vid/paint.mp4}
 \end{frame}
 
-%     \def\colorOne{red}
-%     \def\colorTwo{blue}
-%     \def\colorThree{yellow}
-%     \def\colorFour{green}
-%     \def\colorFive{magenta}
-%     \def\cellSize{1.4em}
+    \def\colorOne{red}
+    \def\colorTwo{blue}
+    \def\colorThree{yellow}
+    \def\colorFour{green}
+    \def\colorFive{magenta}
+    \def\cellSize{1.4em}
 % \begin{frame}
 %     \frametitle{Painting}
 %     \subimport{fig/}{paint}
@@ -151,13 +154,12 @@
 %     show video
 % \end{frame}
 
-% \begin{frame}
-%     \frametitle{Mesh Generation}
-%     \centering
-%     \begin{tikzpicture}
-%         \subimport{fig/}{mesh-cache}
-%     \end{tikzpicture}
-% \end{frame}
+\begin{frame}
+    \frametitle{Mesh Generation}
+    \centering
+    \vspace{3em}
+    \subimport{fig/}{mesh-cache}
+\end{frame}
 
 
 
