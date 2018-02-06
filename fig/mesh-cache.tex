@@ -129,6 +129,8 @@
             }
         \end{scope}
 
+        \node[font=\tiny] at (0,4.5) {Id Lists};
+
     \end{scope}
 
     % blocks per label cache
@@ -140,7 +142,7 @@
                 \node[fill=\colorOne,minimum width=\cellSize,minimum height=\cellSize,yshift=-25] (firstRequestForMeshes) {};
                 \draw[black,thick] ([yshift=1]firstRequestForMeshes.north) edge[->] +(0,0.5);
             }
-            \visible<22-> {
+            \visible<22-25> {
                 \node[fill=\colorOne,minimum width=1,minimum height=1,yshift=-25] (firstReturn) {};
                 \node[fill=\colorOne,minimum width=1,minimum height=1,anchor=north] (secondReturn) at (firstReturn.south) {};
                 \node[font=\scriptsize,anchor=west] at (firstReturn.east) {0};
@@ -182,6 +184,9 @@
                 \node[font=\scriptsize,anchor=west,inner sep=0] at (red.east) {: [0]};
             }
         \end{scope}
+
+        \node[font=\tiny] at (0,4.5) {Block Lists};
+        
     \end{scope}
 
     % meshes cache
@@ -224,13 +229,15 @@
         \begin{scope}[shift={(0,3.3)}]
             \cacheBox{3}
         \end{scope}
+        \node[font=\tiny] at (0,4.5) {Meshes};
+        
     \end{scope}
     
     \begin{scope}[shift={(0,-2)}]
         \visible<4->{
             \node[fill=\colorOne,minimum width=\cellSize,minimum height=\cellSize] (firstRequest) {};
-            \node[anchor=east] at (firstRequest.west) {Meshes for};
-            \node[anchor=west] at (firstRequest.east) {at highest resolution};
+            \node[anchor=east] at (firstRequest.west) {\phantom{g}Meshes for};
+            \node[anchor=west] at (firstRequest.east) {at highest resolution\phantom{M}};
         }
     \end{scope}
             
