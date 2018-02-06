@@ -7,6 +7,9 @@
 \usepackage{pifont}% http://ctan.org/pkg/pifont
 \newcommand{\cmark}{\ding{51}}%
 \newcommand{\xmark}{\ding{55}}%
+\newcommand{\gcmark}{{\color{green}\cmark}}%
+\newcommand{\ycmark}{{\color{yellow}\cmark}}%
+\newcommand{\rxmark}{{\color{red}\xmark}}%
 
 \usepackage{tikz}
 \usetikzlibrary{3d}
@@ -101,6 +104,7 @@
     }
 
     \only<2>{
+        \vspace{1cm}
         \includegraphics[width=\columnwidth]{fig/challenge-pixels-2.pdf}
     }
 
@@ -158,39 +162,28 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{BigCAT -- Want!}
-    \begin{itemize}
-          \item<1-> Ortho views with arbitrary reslicing
-          \item<2-> 3D visualization of meshes
-        \begin{itemize}
-              \item<3-> Mesh generation on the fly for arbitrary data sets 
-        \end{itemize}
-          \item<4-> Multi-resolution painting
-          \item<5-> (Guided) agglomeration with solver server
-          \item<6-> Broadly applicable and extensible
-        \begin{itemize}
-              \item<7-> Heavy number crunching on client side
-        \end{itemize}
-    \end{itemize}
-\end{frame} 
-
-\begin{frame}
-    \frametitle{Why not Neuroglancer}
-    \begin{itemize}
-          \item<1->[\color{green}\cmark] Ortho views with arbitrary reslicing
-          \item<2->[\only<2>{\color{green}\cmark}\only<3->{\color{yellow}\cmark}] 3D visualization of meshes
-        \begin{itemize}
-              \item<3->[\color{red}\xmark] Mesh generation on the fly only for python in memory data sets
-        \end{itemize}
-          \item<4->[\color{red}\xmark] Multi-resolution painting
-          \item<5->[\color{red}\xmark] (Guided) agglomeration with solver server
-          \item<6->[\only<6>{\color{green}\cmark}\only<7->{\color{yellow}\cmark}] Broadly applicable and extensible
-        \begin{itemize}
-              \item<7->[\color{red}\xmark] Heavy number crunching on client side limited \\ \fbox{\includegraphics[width=4cm]{fig/chrome-heap-limit.png}}
-        \end{itemize}
-    \end{itemize}
-% https://stackoverflow.com/a/23705446/1725687
-% https://groups.google.com/a/chromium.org/forum/#!topic/chromium-dev/TUddM_rtgi4
+    \frametitle{Required Features}
+    \small
+    \vspace{1cm}
+    \begin{table}
+        \centering
+        \begin{tabular}{lccc}
+          \visible<1->{                             & BigCAT & Neuroglancer & BigCAT v2 \\}                       
+          \visible<2->{Arbitrary cross-sections     & \gcmark & \gcmark & \gcmark \\}                             
+          \visible<3->{Orthogonal views             & \rxmark & \gcmark & \gcmark \\}                             
+          \visible<4->{3D visualization             & \rxmark & \gcmark & \gcmark \\}                             
+          \visible<5->{3D model generation          & \rxmark & \rxmark & \gcmark \\}                             
+          \visible<6->{Painting                     & \gcmark & \rxmark & \gcmark \\}                             
+          \visible<7->{Multi-scale painting         & \rxmark & \rxmark & \gcmark \\}                             
+          \visible<8->{Semi-automatic agglomeration & \rxmark & \rxmark & \gcmark \\}                             
+          \visible<9->{Extensibility                & \rxmark & \only<9>{\gcmark}\only<10->{\ycmark} & \gcmark \\}
+        \end{tabular}
+    \end{table}
+    \visible<10->{
+        \begin{tikzpicture}[overlay]
+            \node[draw=black] at (10cm,0cm) {\includegraphics[width=3cm]{fig/chrome-heap-limit.png}};
+        \end{tikzpicture}
+    }
 \end{frame}
 
 % \begin{frame}
