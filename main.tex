@@ -100,26 +100,25 @@
     \end{textblock}%
 
     \vspace{1cm}
-    \begin{tikzpicture}[remember picture]
-        \node[anchor=south west] (pipeline) {\includegraphics{fig/reconstruction-pipeline.pdf}};
-        \begin{scope}[x={(pipeline.south east)},y={(pipeline.north west)}]
-            \coordinate (boundary) at (0.22, 0.2);
-            \coordinate (agglomeration) at (0.77, 0.2);
-            \visible<2->{
-                \node[red,ultra thick] (ml) at (0.5,-0.2) {Machine Learning};
-                \draw[red,ultra thick] (0.22,0.5) ellipse (0.07 and 0.25);
-                \draw[thick,red] (ml.west) edge [->,out=180,in=270] (boundary);
-
-                
-                
-                
-            }
-            \visible<3->{
-                \draw[red,ultra thick] (0.77,0.5) ellipse (0.07 and 0.25);
-                \draw[thick,red] (ml.east) edge [->,out=0,in=270] (agglomeration);
-            }
-        \end{scope}
-    \end{tikzpicture}
+    \centering
+    \makebox[\textwidth][c]{
+        \begin{tikzpicture}[remember picture]
+            \node[anchor=south west] (pipeline) {\includegraphics{fig/reconstruction-pipeline.pdf}};
+            \begin{scope}[x={(pipeline.south east)},y={(pipeline.north west)}]
+                \coordinate (boundary) at (0.22, 0.2);
+                \coordinate (agglomeration) at (0.77, 0.2);
+                \visible<2->{
+                    \node[red,ultra thick] (ml) at (0.5,-0.2) {Machine Learning};
+                    \draw[red,ultra thick] (0.22,0.5) ellipse (0.07 and 0.25);
+                    \draw[thick,red] (ml.west) edge [->,out=180,in=270] (boundary);
+                }
+                \visible<3->{
+                    \draw[red,ultra thick] (0.77,0.5) ellipse (0.07 and 0.25);
+                    \draw[thick,red] (ml.east) edge [->,out=0,in=270] (agglomeration);
+                }
+            \end{scope}
+        \end{tikzpicture}
+    }
 
     
     \begin{tikzpicture}[remember picture,overlay]
@@ -241,21 +240,21 @@
     \begin{table}
         \centering
         \begin{tabular}{lccc}
-          \visible<1->{                             & BigCAT & Neuroglancer\footnote{\tiny{}https://github.com/google/neuroglancer} & BigCAT v2 \\}                       
-          \visible<2->{Arbitrary cross-sections     & \gcmark & \gcmark & \gcmark \\}                             
-          \visible<3->{Orthogonal views             & \rxmark & \gcmark & \gcmark \\}                             
-          \visible<4->{3D visualization             & \rxmark & \gcmark & \gcmark \\}                             
-          \visible<5->{3D model generation          & \rxmark & \rxmark & \gcmark \\}                             
-          \visible<6->{Painting                     & \gcmark & \rxmark & \gcmark \\}                             
-          \visible<7->{Multi-resolution painting         & \rxmark & \rxmark & \gcmark \\}                             
-          \visible<8->{Semi-automatic agglomeration & \rxmark & \rxmark & \gcmark \\}                             
-          \visible<9->{Extensibility                & \rxmark & \only<9>{\gcmark}\only<10->{\ycmark} & \gcmark \\}
+                                       & BigCAT & Neuroglancer\footnote{\tiny{}https://github.com/google/neuroglancer} & \visible<3->{BigCAT v2} \\
+          Arbitrary cross-sections     & \gcmark & \gcmark & \visible<3->{\gcmark} \\
+          Orthogonal views             & \rxmark & \gcmark & \visible<3->{\gcmark} \\
+          Semi-automatic agglomeration & \rxmark & \rxmark & \visible<3->{\gcmark} \\
+          Painting                     & \gcmark & \rxmark & \visible<3->{\gcmark} \\
+          Multi-resolution painting    & \rxmark & \rxmark & \visible<3->{\gcmark} \\
+          3D visualization             & \rxmark & \gcmark & \visible<3->{\gcmark} \\
+          3D model generation          & \rxmark & \rxmark & \visible<3->{\gcmark} \\
+          Client side image processing & \gcmark & \only<1>{\gcmark}\only<2->{\ycmark} & \visible<3->{\gcmark} \\
         \end{tabular}
     \end{table}%
-    \visible<10>{%
+    \visible<2->{%
         \begin{tikzpicture}[overlay]%
             \begin{scope}[overlay]
-                \node[draw=black] at (10cm,0cm) {\includegraphics[width=3cm]{fig/chrome-heap-limit.png}};%
+                \node[draw=black] at (10cm,-0.5cm) {\includegraphics[width=3cm]{fig/chrome-heap-limit.png}};%
             \end{scope}
         \end{tikzpicture}%
     }%
@@ -268,15 +267,15 @@
     \begin{table}
         \centering
         \begin{tabular}{lccc}
-                                       & BigCAT & Neuroglancer & BigCAT v2 \\
-          Arbitrary cross-sections     & \gcmark & \gcmark & \gcmark \\
-          Orthogonal views             & \rxmark & \gcmark & \gcmark \\ 
-          3D visualization             & \rxmark & \gcmark & \gcmark \\ 
-          3D model generation          & \rxmark & \rxmark & \gcmark \\ 
-          Painting                     & \gcmark & \rxmark & \gcmark \\ 
-          Multi-resolution painting         & \rxmark & \rxmark & \gcmark \\ 
-          \rowcolor{black!20} Semi-automatic agglomeration & \rxmark & \rxmark & \gcmark \\ 
-          Extensibility                & \rxmark & \ycmark & \gcmark \\
+                                                           & BigCAT & Neuroglancer & BigCAT v2 \\
+          Arbitrary cross-sections                         & \gcmark & \gcmark & \gcmark \\
+          Orthogonal views                                 & \rxmark & \gcmark & \gcmark \\
+          \rowcolor{black!20} Semi-automatic agglomeration & \rxmark & \rxmark & \gcmark \\
+          Painting                                         & \gcmark & \rxmark & \gcmark \\
+          Multi-resolution painting                        & \rxmark & \rxmark & \gcmark \\
+          3D visualization                                 & \rxmark & \gcmark & \gcmark \\
+          3D model generation                              & \rxmark & \rxmark & \gcmark \\
+          Client side image processing                     & \rxmark & \ycmark & \gcmark \\
         \end{tabular}
     \end{table}
 \end{frame}
@@ -317,15 +316,15 @@
     \begin{table}
         \centering
         \begin{tabular}{lccc}
-                                       & BigCAT & Neuroglancer & BigCAT v2 \\
-          Arbitrary cross-sections     & \gcmark & \gcmark & \gcmark \\
-          Orthogonal views             & \rxmark & \gcmark & \gcmark \\ 
-          3D visualization             & \rxmark & \gcmark & \gcmark \\ 
-          3D model generation          & \rxmark & \rxmark & \gcmark \\ 
-          \rowcolor{black!20} Painting                     & \gcmark & \rxmark & \gcmark \\ 
-          \rowcolor{black!20} Multi-resolution painting         & \rxmark & \rxmark & \gcmark \\ 
-          Semi-automatic agglomeration & \rxmark & \rxmark & \gcmark \\ 
-          Extensibility                & \rxmark & \ycmark & \gcmark \\
+                                                           & BigCAT & Neuroglancer & BigCAT v2 \\
+          Arbitrary cross-sections                         & \gcmark & \gcmark & \gcmark \\
+          Orthogonal views                                 & \rxmark & \gcmark & \gcmark \\
+          Semi-automatic agglomeration & \rxmark & \rxmark & \gcmark \\
+          \rowcolor{black!20} Painting                     & \gcmark & \rxmark & \gcmark \\
+          \rowcolor{black!20} Multi-resolution painting    & \rxmark & \rxmark & \gcmark \\
+          3D visualization                                 & \rxmark & \gcmark & \gcmark \\
+          3D model generation                              & \rxmark & \rxmark & \gcmark \\
+          Client side image processing                     & \rxmark & \ycmark & \gcmark \\
         \end{tabular}
     \end{table}
 \end{frame}
@@ -355,10 +354,10 @@
 \def\cellSize{1.4em}
 \begin{frame}
     \frametitle{Multi-Resolution Painting}
-    % \tikzexternalenable
+    \tikzexternalenable
     \vspace{4em}
     \subimport{fig/}{paint}
-    % \tikzexternaldisable
+    \tikzexternaldisable
 \end{frame}
 
 \begin{frame}
@@ -376,15 +375,15 @@
     \begin{table}
         \centering
         \begin{tabular}{lccc}
-                                       & BigCAT & Neuroglancer & BigCAT v2 \\
-          Arbitrary cross-sections     & \gcmark & \gcmark & \gcmark \\
-          Orthogonal views             & \rxmark & \gcmark & \gcmark \\ 
-          3D visualization             & \rxmark & \gcmark & \gcmark \\ 
-          \rowcolor{black!20}  3D model generation          & \rxmark & \rxmark & \gcmark \\ 
-          Painting                     & \gcmark & \rxmark & \gcmark \\ 
-          Multi-resolution painting         & \rxmark & \rxmark & \gcmark \\ 
-          Semi-automatic agglomeration & \rxmark & \rxmark & \gcmark \\ 
-          Extensibility                & \rxmark & \ycmark & \gcmark \\
+                                                  & BigCAT & Neuroglancer & BigCAT v2 \\
+          Arbitrary cross-sections                & \gcmark & \gcmark & \gcmark \\
+          Orthogonal views                        & \rxmark & \gcmark & \gcmark \\
+          Semi-automatic agglomeration            & \rxmark & \rxmark & \gcmark \\
+          Painting                                & \gcmark & \rxmark & \gcmark \\
+          Multi-resolution painting               & \rxmark & \rxmark & \gcmark \\
+          \rowcolor{black!20} 3D visualization    & \rxmark & \gcmark & \gcmark \\
+          \rowcolor{black!20} 3D model generation & \rxmark & \rxmark & \gcmark \\
+          Client side image processing            & \rxmark & \ycmark & \gcmark \\
         \end{tabular}
     \end{table}
 \end{frame}
@@ -412,9 +411,11 @@
         \tikzexternaldisable
     }
     \begin{textblock}{3}(15,0)
-        \tiny\includegraphics[width=1cm]{fig/people/pietzsch.png}
+        \visible<26>{
+            \tiny\includegraphics[width=1cm]{fig/people/pietzsch.png}
         
-        T. Pietzsch%
+            T. Pietzsch%
+        }
     \end{textblock}%
 \end{frame}
 
@@ -425,15 +426,15 @@
     \begin{table}
         \centering
         \begin{tabular}{lccc}
-                                       & BigCAT & Neuroglancer & BigCAT v2 \\
-          Arbitrary cross-sections     & \gcmark & \gcmark & \gcmark \\
-          Orthogonal views             & \rxmark & \gcmark & \gcmark \\ 
-          3D visualization             & \rxmark & \gcmark & \gcmark \\ 
-          3D model generation          & \rxmark & \rxmark & \gcmark \\ 
-          Painting                     & \gcmark & \rxmark & \gcmark \\ 
-          Multi-resolution painting         & \rxmark & \rxmark & \gcmark \\ 
-          Semi-automatic agglomeration & \rxmark & \rxmark & \gcmark \\ 
-          \rowcolor{black!20}  Extensibility                & \rxmark & \ycmark & \gcmark \\
+                                                           & BigCAT & Neuroglancer & BigCAT v2 \\
+          Arbitrary cross-sections                         & \gcmark & \gcmark & \gcmark \\
+          Orthogonal views                                 & \rxmark & \gcmark & \gcmark \\
+          Semi-automatic agglomeration                     & \rxmark & \rxmark & \gcmark \\
+          Painting                                         & \gcmark & \rxmark & \gcmark \\
+          Multi-resolution painting                        & \rxmark & \rxmark & \gcmark \\
+          3D visualization                                 & \rxmark & \gcmark & \gcmark \\
+          3D model generation                              & \rxmark & \rxmark & \gcmark \\
+          \rowcolor{black!20} Client side image processing & \rxmark & \ycmark & \gcmark \\
         \end{tabular}
     \end{table}
 \end{frame}
@@ -514,9 +515,15 @@
     \scriptsize
     \begin{description}[leftmargin=3.5cm,style=multiline,font=\scriptsize]
           \item[BigCAT] https://github.com/saalfeldlab/bigcat
+               https://github.com/saalfeldlab/bigcat/tree/javafx-generic-listeners
+        % \begin{itemize}
+        %       \item[] https://github.com/saalfeldlab/bigcat
+        %       \item[] https://github.com/saalfeldlab/bigcat/tree/javafx-generic-listeners
+        % \end{itemize}
           \item[Rename BigCAT] https://github.com/saalfeldlab/bigcat/issues/23
           \item[BigDataViewer] https://github.com/bigdataviewer/bigdataviewer-core
           \item[imglib2] https://github.com/imglib/imglib2
+          \item[imglib2-algorithm] https://github.com/imglib/imglib2-algorithm
     \end{description}
 \end{frame}
 
