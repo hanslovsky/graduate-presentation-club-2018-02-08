@@ -268,8 +268,17 @@
 
 \begin{frame}
     \frametitle{Agglomeration}
-    \small
+    \scriptsize
     \vspace{1cm}
+    \makebox[\textwidth][c]{
+        \begin{tikzpicture}[remember picture]
+            \node[anchor=south west] (pipeline) {\includegraphics[width=0.7\textwidth]{fig/reconstruction-pipeline.pdf}};
+            \begin{scope}[x={(pipeline.south east)},y={(pipeline.north west)}]
+                    % \draw[red,ultra thick] (0.22,0.5) ellipse (0.07 and 0.25);
+                    \draw[red,ultra thick] (0.77,0.5) ellipse (0.07 and 0.25);
+            \end{scope}
+        \end{tikzpicture}
+    }
     \begin{table}
         \centering
         \begin{tabular}{lccc}
@@ -281,7 +290,7 @@
           Multi-resolution painting                        & \rxmark & \rxmark & \gcmark \\
           3D visualization                                 & \rxmark & \gcmark & \gcmark \\
           3D model generation                              & \rxmark & \rxmark & \gcmark \\
-          Client side image processing                     & \rxmark & \ycmark & \gcmark \\
+          Client side image processing                     & \gcmark & \ycmark & \gcmark \\
         \end{tabular}
     \end{table}
 \end{frame}
@@ -319,6 +328,15 @@
     \frametitle{Multi-Resolution Painting}
     \small
     \vspace{1cm}
+    \makebox[\textwidth][c]{
+        \begin{tikzpicture}[remember picture]
+            \node[anchor=south west] (pipeline) {\includegraphics[width=0.7\textwidth]{fig/reconstruction-pipeline.pdf}};
+            \begin{scope}[x={(pipeline.south east)},y={(pipeline.north west)}]
+                    \draw[red,ultra thick] (0.22,0.5) ellipse (0.07 and 0.25);
+                    \draw[red,ultra thick] (0.77,0.5) ellipse (0.07 and 0.25);
+            \end{scope}
+        \end{tikzpicture}
+    }
     \begin{table}
         \centering
         \begin{tabular}{lccc}
@@ -330,7 +348,7 @@
           \rowcolor{black!20} Multi-resolution painting    & \rxmark & \rxmark & \gcmark \\
           3D visualization                                 & \rxmark & \gcmark & \gcmark \\
           3D model generation                              & \rxmark & \rxmark & \gcmark \\
-          Client side image processing                     & \rxmark & \ycmark & \gcmark \\
+          Client side image processing                     & \gcmark & \ycmark & \gcmark \\
         \end{tabular}
     \end{table}
 \end{frame}
@@ -389,7 +407,7 @@
           Multi-resolution painting               & \rxmark & \rxmark & \gcmark \\
           \rowcolor{black!20} 3D visualization    & \rxmark & \gcmark & \gcmark \\
           \rowcolor{black!20} 3D model generation & \rxmark & \rxmark & \gcmark \\
-          Client side image processing            & \rxmark & \ycmark & \gcmark \\
+          Client side image processing            & \gcmark & \ycmark & \gcmark \\
         \end{tabular}
     \end{table}
 \end{frame}
@@ -412,7 +430,7 @@
     {
         \centering
         \vspace{3em}
-        % \tikzexternalenable
+        \tikzexternalenable
         \subimport{fig/}{mesh-cache}
         \tikzexternaldisable
     }
@@ -440,7 +458,7 @@
           Multi-resolution painting                        & \rxmark & \rxmark & \gcmark \\
           3D visualization                                 & \rxmark & \gcmark & \gcmark \\
           3D model generation                              & \rxmark & \rxmark & \gcmark \\
-          \rowcolor{black!20} Client side image processing & \rxmark & \ycmark & \gcmark \\
+          \rowcolor{black!20} Client side image processing & \gcmark & \ycmark & \gcmark \\
         \end{tabular}
     \end{table}
 \end{frame}
