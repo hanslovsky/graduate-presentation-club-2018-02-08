@@ -30,6 +30,8 @@
 
 \usetheme{Janelia}
 
+\setbeamercolor{description item}{fg=HHMIGreenB}
+
 \title[Janelia Theme]{The Metamorphosis of BigCAT --- Proofreading Experiments\\}
 \subtitle{Proofreading Experiments}
 % \subtitle{A custom modern minimalist Beamer theme designed from scratch}
@@ -178,12 +180,14 @@
           \visible<8->{Semi-automatic agglomeration & \rxmark & \rxmark & \gcmark \\}                             
           \visible<9->{Extensibility                & \rxmark & \only<9>{\gcmark}\only<10->{\ycmark} & \gcmark \\}
         \end{tabular}
-    \end{table}
-    \visible<10>{
-        \begin{tikzpicture}[overlay]
-            \node[draw=black] at (10cm,0cm) {\includegraphics[width=3cm]{fig/chrome-heap-limit.png}};
-        \end{tikzpicture}
-    }
+    \end{table}%
+    \visible<10>{%
+        \begin{tikzpicture}[overlay]%
+            \begin{scope}[overlay]
+                \node[draw=black] at (10cm,0cm) {\includegraphics[width=3cm]{fig/chrome-heap-limit.png}};%
+            \end{scope}
+        \end{tikzpicture}%
+    }%
 \end{frame}
 
 \begin{frame}
@@ -314,12 +318,12 @@
     ]{}{vid/mesh.mp4}
 \end{frame}
 
-\begin{frame}
-    \frametitle{Mesh Generation}
-    \centering
-    \vspace{3em}
-    \subimport{fig/}{mesh-cache}
-\end{frame}
+% \begin{frame}
+%     \frametitle{Mesh Generation}
+%     \centering
+%     \vspace{3em}
+%     \subimport{fig/}{mesh-cache}
+% \end{frame}
 
 \begin{frame}
     \frametitle{Extensibility}
@@ -370,7 +374,7 @@
               3D model generation          & \rxmark & \rxmark & \gcmark \\ 
               Painting                     & \gcmark & \rxmark & \gcmark \\ 
               Multi-resolution painting         & \rxmark & \rxmark & \gcmark \\ 
-              \rowcolor{black!20} Semi-automatic agglomeration & \rxmark & \rxmark & \gcmark \\ 
+              Semi-automatic agglomeration & \rxmark & \rxmark & \gcmark \\ 
               Extensibility                & \rxmark & \ycmark & \gcmark \\
             \end{tabular}
         \end{table}
@@ -386,36 +390,52 @@
               3D model generation          & \rxmark & \rxmark & \ycmark \\ 
               Painting                     & \gcmark & \rxmark & \gcmark \\ 
               Multi-resolution painting         & \rxmark & \rxmark & \ycmark \\ 
-              \rowcolor{black!20} Semi-automatic agglomeration & \rxmark & \rxmark & \ycmark \\ 
+              Semi-automatic agglomeration & \rxmark & \rxmark & \ycmark \\ 
               Extensibility                & \rxmark & \ycmark & \gcmark \\
             \end{tabular}
         \end{table}
     }
 \end{frame}
 
+% \begin{frame}
+%     \frametitle{Name}
+%     tbd
+%     BigCAT may be known under a different name in the future:
+%     https://github.com/saalfeldlab/bigcat/issues/23
+% \end{frame}
+
 \begin{frame}
-    \frametitle{Name}
-    tbd
-    BigCAT may be known under a different name in the future:
-    https://github.com/saalfeldlab/bigcat/issues/23
+    \frametitle{Links}
+    \centering
+    \scriptsize
+    \begin{description}[leftmargin=3.5cm,style=multiline,font=\scriptsize]
+          \item[BigCAT] https://github.com/saalfeldlab/bigcat
+          \item[Rename BigCAT] https://github.com/saalfeldlab/bigcat/issues/23
+          \item[BigDataViewer] https://github.com/bigdataviewer/bigdataviewer-core
+          \item[imglib2] https://github.com/imglib/imglib2
+    \end{description}
 \end{frame}
 
-% \begin{frame}
-%     \frametitle{Links}
-%     \begin{itemize}
-%           \item[BigCAT] 
-%     \end{itemize}
-% \end{frame}
-
-% \begin{frame}
-%     \frametitle{Acknowledgements}
-%     tbd
-%     \begin{itemize}
-%           \item Saalfeld lab
-%           \item Tobias
-%           \item Jan, Vanessa
-%     \end{itemize}
-% \end{frame}
+\begin{frame}
+    \frametitle{Acknowledgements}
+    \begin{textblock}{16}(0, -4.25) 
+        \includegraphics[width=\textwidth]{fig/janelia.jpg}
+    \end{textblock}%
+    \begin{textblock}{9.8}(6,0.5)
+        \scriptsize%
+        \begin{description}
+              \item[The Lab:]{John Bogovic, Philipp Hanslovsky, Larissa Heinrich, Shelby Morris, Igor Pisarev, Stephan Saalfeld, Neil Thistlethwaite}
+              \item[Visitors:]{Jan Funke, Constantin Pape}
+              \item[OK:]{Tobias Pietzsch}
+\end{description}
+\end{textblock}
+    % tbd
+    % \begin{itemize}
+    %       \item Saalfeld lab
+    %       \item Tobias
+    %       \item Jan, Vanessa
+    % \end{itemize}
+\end{frame}
 
     
 
