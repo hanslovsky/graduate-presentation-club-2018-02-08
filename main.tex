@@ -15,6 +15,7 @@
 \usetikzlibrary{3d}
 \usetikzlibrary{backgrounds}
 \usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{external}
 \usetikzlibrary{fit}
 % \usetikzlibrary{external}
 \usetikzlibrary{matrix}
@@ -22,12 +23,12 @@
 \usetikzlibrary{scopes} % brilliant library!
 \usetikzlibrary{tikzmark}
 
-% \tikzexternalize
-
 \pgfdeclarelayer{background}
 \pgfdeclarelayer{foreground}
 \pgfsetlayers{background,main,foreground}
 
+\tikzexternalize
+\tikzexternaldisable
 
 \usetheme{Janelia}
 
@@ -353,13 +354,19 @@
 \def\colorFive{magenta}
 \def\cellSize{1.4em}
 \begin{frame}
-    \frametitle{Painting}
-    % \subimport{fig/}{paint}
+    \frametitle{Multi-Resolution Painting}
+    % \tikzexternalenable
+    \vspace{4em}
+    \subimport{fig/}{paint}
+    % \tikzexternaldisable
 \end{frame}
 
 \begin{frame}
     \frametitle{Multi-Resolution Painting}
-    % \subimport{fig/}{paint-continued}
+    \vspace{4em}
+    \tikzexternalenable
+    \subimport{fig/}{paint-continued}
+    \tikzexternaldisable
 \end{frame}
 
 \begin{frame}
@@ -400,7 +407,9 @@
     {
         \centering
         \vspace{3em}
-        % \subimport{fig/}{mesh-cache}
+        % \tikzexternalenable
+        \subimport{fig/}{mesh-cache}
+        \tikzexternaldisable
     }
     \begin{textblock}{3}(15,0)
         \tiny\includegraphics[width=1cm]{fig/people/pietzsch.png}

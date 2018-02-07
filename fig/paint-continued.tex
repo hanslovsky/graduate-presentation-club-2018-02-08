@@ -1,3 +1,4 @@
+\visible<1-2>{}
 \begin{tikzpicture}
     \centering
     \begin{scope}
@@ -64,6 +65,9 @@
             |[]| \& |[]| \\
         };
     \end{scope}
+
+    % this is necessary to avoid shifts in slides
+    \draw[thick,\colorFive,opacity=0] ([yshift=-2]canvas-0-1-6.south) edge[bend left=40,->] ([yshift=-2]bg-0-1-6.south);
 
     \begin{pgfonlayer}{background}
         \visible<1->{
