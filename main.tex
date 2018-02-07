@@ -50,27 +50,25 @@
 
 \begin{frame}
     \frametitle{Circuit Reconstruction}
-    \only<1>{
-        \begin{tikzpicture}
-            \node[] (diagram) {\includegraphics[width=0.6\textwidth]{fig/circuit-diagram.pdf}};
-            \node[anchor=north,font=\tiny] at (diagram.south) {https://upload.wikimedia.org/wikipedia/commons/7/76/4\_bit\_counter.svg};%% https://upload.wikimedia.org/wikipedia/commons/7/76/4_bit_counter.svg};
-            % \begin{scope}[x={(diagram.south east)},y={(diagram.north west)}]
-            %     \visible<2->{
-            %     \draw[red] (0.5,0.2) ellipse (2mm and 5mm);
-            % }
-            % \end{scope}
-        \end{tikzpicture}
-    }
-    \only<2>{
-        \begin{tikzpicture}
-            \node[] (neuron) {\includegraphics[width=0.4\linewidth]{fig/neuron.png}};
+    \begin{tikzpicture}
+        \node[] (diagram) {\includegraphics[width=0.4\textwidth]{fig/circuit-diagram.pdf}};
+        \node[anchor=north,font=\tiny] at (diagram.south) {https://upload.wikimedia.org/wikipedia/commons/7/76/4\_bit\_counter.svg};%% https://upload.wikimedia.org/wikipedia/commons/7/76/4_bit_counter.svg};
+        % \begin{scope}[x={(diagram.south east)},y={(diagram.north west)}]
+        %     \visible<2->{
+        %     \draw[red] (0.5,0.2) ellipse (2mm and 5mm);
+        % }
+        % \end{scope}
+    \visible<2->{
+            \node[anchor=west,inner sep=0] (neuron) at ([xshift=30]diagram.north east) {\includegraphics[width=0.3\linewidth]{fig/neuron.png}};
             \node[anchor=north,font=\tiny] at (neuron.south) {https://www.wikipedia.org/};
+        }
+        \visible<3-> {
             % https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Neuron_Hand-tuned.svg/400px-Neuron_Hand-tuned.svg.png
-            \node[anchor=north west] (synapse) at ([xshift=50]neuron.north east) {\includegraphics[width=0.2\linewidth]{fig/synapse.png}};
+            \node[anchor=west] (synapse) at ([xshift=60]diagram.south east) {\includegraphics[width=0.1\linewidth]{fig/synapse.png}};
             \node[anchor=north,font=\tiny] at (synapse.south) {https://psychlopedia.wikispaces.com};
             % https://psychlopedia.wikispaces.com/file/view/syn.gif/325862020/syn.gif
+        }
         \end{tikzpicture}
-    }
 \end{frame}
 
 \begin{frame}
@@ -288,7 +286,7 @@
         \node[fit=(current page),fill=black,inner sep=0] {};
     \end{tikzpicture}%
     
-    \def\factor{1.0}
+    \def\factor{0.9}
 
     % force two slides
     \visible<1-2>{}
@@ -338,7 +336,9 @@
         \node[fit=(current page),fill=black,inner sep=0] {};
     \end{tikzpicture}%
 
-    \def\factor{1.0}
+    \centering
+
+    \def\factor{0.9}
     \movie[%
     % width=\factor\textwidth,%
     % height=\factor\textheight,%
@@ -387,11 +387,12 @@
         \node[fit=(current page),fill=black,inner sep=0] {};
     \end{tikzpicture}%
 
-    \def\factor{1.0}
+    \centering
+    \def\factor{0.9}
     \movie[%
     % width=\factor\textwidth,%
     % height=\factor\textheight,%
-    ]{\includegraphics[width=\textwidth]{vid/mesh-placeholder.jpg}}{vid/mesh.mp4}
+    ]{\includegraphics[width=\factor\textwidth]{vid/mesh-placeholder.jpg}}{vid/mesh.mp4}
 \end{frame}
 
 % \begin{frame}
@@ -491,13 +492,6 @@
     }
 \end{frame}
 
-% \begin{frame}
-%     \frametitle{Name}
-%     tbd
-%     BigCAT may be known under a different name in the future:
-%     https://github.com/saalfeldlab/bigcat/issues/23
-% \end{frame}
-
 \begin{frame}
     \frametitle{Links}
     \centering
@@ -523,12 +517,6 @@
               \item[Cool stuff:]{\color{white}Tobias Pietzsch}
 \end{description}
 \end{textblock}
-    % tbd
-    % \begin{itemize}
-    %       \item Saalfeld lab
-    %       \item Tobias
-    %       \item Jan, Vanessa
-    % \end{itemize}
 \end{frame}
 
     
