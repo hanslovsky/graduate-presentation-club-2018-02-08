@@ -356,6 +356,44 @@
 \end{frame}
 
 \begin{frame}
+    \frametitle{Summary}
+    \small
+    \vspace{1cm}
+    \only<1>{
+        \begin{table}
+            \centering
+            \begin{tabular}{lccc}
+              & BigCAT & Neuroglancer & BigCAT v2 \\
+              Arbitrary cross-sections     & \gcmark & \gcmark & \gcmark \\
+              Orthogonal views             & \rxmark & \gcmark & \gcmark \\ 
+              3D visualization             & \rxmark & \gcmark & \gcmark \\ 
+              3D model generation          & \rxmark & \rxmark & \gcmark \\ 
+              Painting                     & \gcmark & \rxmark & \gcmark \\ 
+              Multi-resolution painting         & \rxmark & \rxmark & \gcmark \\ 
+              \rowcolor{black!20} Semi-automatic agglomeration & \rxmark & \rxmark & \gcmark \\ 
+              Extensibility                & \rxmark & \ycmark & \gcmark \\
+            \end{tabular}
+        \end{table}
+    }
+    \only<2>{
+        \begin{table}
+            \centering
+            \begin{tabular}{lccc}
+              & BigCAT & Neuroglancer & BigCAT v2 \\
+              Arbitrary cross-sections     & \gcmark & \gcmark & \gcmark \\
+              Orthogonal views             & \rxmark & \gcmark & \gcmark \\ 
+              3D visualization             & \rxmark & \gcmark & \gcmark \\ 
+              3D model generation          & \rxmark & \rxmark & \ycmark \\ 
+              Painting                     & \gcmark & \rxmark & \gcmark \\ 
+              Multi-resolution painting         & \rxmark & \rxmark & \ycmark \\ 
+              \rowcolor{black!20} Semi-automatic agglomeration & \rxmark & \rxmark & \ycmark \\ 
+              Extensibility                & \rxmark & \ycmark & \gcmark \\
+            \end{tabular}
+        \end{table}
+    }
+\end{frame}
+
+\begin{frame}
     \frametitle{Name}
     tbd
     BigCAT may be known under a different name in the future:
