@@ -20,6 +20,7 @@
 \usetikzlibrary{matrix}
 \usetikzlibrary{positioning}
 \usetikzlibrary{scopes} % brilliant library!
+\usetikzlibrary{tikzmark}
 
 % \tikzexternalize
 
@@ -74,26 +75,79 @@
 
 \begin{frame}
     \frametitle{Automatic Reconstruction}
-    \begin{tikzpicture}
+
+    \begin{textblock}{3}(11.4,0)
+        \tiny\includegraphics[width=1cm]{fig/people/funke.png}
+        
+        J. Funke%
+    \end{textblock}%
+    
+    \begin{textblock}{3}(12.6,0)
+        \tiny\includegraphics[width=1cm]{fig/people/papec.png}
+
+        C. Pape%
+    \end{textblock}%
+    
+    \begin{textblock}{3}(13.8,0)
+        \tiny\includegraphics[width=1cm]{fig/people/tschopp.jpeg}
+
+        F. Tschopp%
+    \end{textblock}%
+    
+    \begin{textblock}{3}(15,0)
+        \tiny\includegraphics[width=1cm]{fig/people/turaga.jpg}
+
+        S. Turaga%
+    \end{textblock}%
+
+    \vspace{1cm}
+    \begin{tikzpicture}[remember picture]
         \node[anchor=south west] (pipeline) {\includegraphics{fig/reconstruction-pipeline.pdf}};
         \begin{scope}[x={(pipeline.south east)},y={(pipeline.north west)}]
+            \coordinate (boundary) at (0.22, 0.2);
+            \coordinate (agglomeration) at (0.77, 0.2);
             \visible<2->{
                 \node[red,ultra thick] (ml) at (0.5,-0.2) {Machine Learning};
                 \draw[red,ultra thick] (0.22,0.5) ellipse (0.07 and 0.25);
-                \draw[thick,red] (ml.west) edge [->,out=180,in=270] (0.22, 0.2);
+                \draw[thick,red] (ml.west) edge [->,out=180,in=270] (boundary);
+
+                
+                
+                
             }
             \visible<3->{
                 \draw[red,ultra thick] (0.77,0.5) ellipse (0.07 and 0.25);
-                \draw[thick,red] (ml.east) edge [->,out=0,in=270] (0.77, 0.2);
+                \draw[thick,red] (ml.east) edge [->,out=0,in=270] (agglomeration);
             }
         \end{scope}
     \end{tikzpicture}
 
-    \vfill
+    
+    \begin{tikzpicture}[remember picture,overlay]
+        \visible<2-> {
+            \draw[thick,red]  ([xshift=-15,yshift=5]pic cs:funke) edge[->,in=250,out=150] ([xshift=-5]boundary);
+        }
+        \visible<3-> {
+            \coordinate (inBetween) at ([xshift=70,yshift=3]$(pic cs:beier)!0.5!(pic cs:pape)$);
+            \draw[thick,red] ([yshift=3]pic cs:beier) edge[in=210,out=0] (inBetween);
+            \draw[thick,red] ([yshift=3]pic cs:pape) edge[in=210,out=0] (inBetween);
+            \draw[thick,red] (inBetween) edge[->,in=290,out=30] ([xshift=5]agglomeration);
+            % \draw[thick,red]  ([xshift=-15,yshift=5]pic cs:funke) edge[->,in=250,out=150] ([xshift=-5]boundary);
+        }
+    \end{tikzpicture}
+
+    \vspace{1cm}
     \visible<1->{
-        \tiny
-        Funke \emph{et al.} ``A deep structured learning approach toward automating connectome reconstruction from 3D electron micrographs'' (2017). arXiv 1709.0297
+        \tiny 
+        \begin{enumerate}[(1)]
+              \item \tikzmark{funke} Funke \emph{et al.} ``A deep structured learning approach toward automating connectome reconstruction from 3D electron micrographs'' (2017). arXiv 1709.0297
+              \item Beier \emph{et al.} ``Multicut brings automated neurite segmentation closer to human performance'' (2017). Nature methods 4, 101-102 \tikzmark{beier}
+              \item Pape \emph{et al.} ``Solving large Multicut problems for connectomics via domain decomposition'' (2017) ICCV. \tikzmark{pape}
+        \end{enumerate}
+        % \begin{tikzpicture}[remember picture]\coordinate (funke) at (0,0);\end{tikzpicture}
+        
     }
+
 \end{frame}
 
 
@@ -153,12 +207,32 @@
     \begin{tikzpicture}[remember picture,overlay]
         \node[fit=(current page),fill=black,inner sep=0] {};
     \end{tikzpicture}%
-    
     \def\factor{1.0}
+
+    \visible<1-2>{
     \movie[%
     % width=\factor\textwidth,%
     % height=\factor\textheight,%
     ]{\includegraphics[width=\factor\textwidth]{vid/bigcat-cremi-placeholder.jpg}}{vid/bigcat-cremi-b-aligned.mov}
+    }
+
+    
+
+    \only<1>{
+        % \includegraphics[width=\factor\textwidth]{vid/bigcat-cremi-placeholder.jpg}
+        \begin{textblock}{3}(13.8,0)
+            \tiny\includegraphics[width=1cm]{fig/people/funke.png}
+        
+            {\color{white}J. Funke}%
+        \end{textblock}%
+    
+        \begin{textblock}{3}(15,0)
+            \tiny\includegraphics[width=1cm]{fig/people/pietzsch.png}
+        
+            {\color{white}T. Pietzsch}%
+        \end{textblock}%
+    }
+    
 \end{frame}
 
 \begin{frame}
@@ -168,7 +242,7 @@
     \begin{table}
         \centering
         \begin{tabular}{lccc}
-          \visible<1->{                             & BigCAT & Neuroglancer & BigCAT v2 \\}                       
+          \visible<1->{                             & BigCAT & Neuroglancer\footnote{\tiny{}https://github.com/google/neuroglancer} & BigCAT v2 \\}                       
           \visible<2->{Arbitrary cross-sections     & \gcmark & \gcmark & \gcmark \\}                             
           \visible<3->{Orthogonal views             & \rxmark & \gcmark & \gcmark \\}                             
           \visible<4->{3D visualization             & \rxmark & \gcmark & \gcmark \\}                             
@@ -215,6 +289,9 @@
     \end{tikzpicture}%
     
     \def\factor{1.0}
+
+    % force two slides
+    \visible<1-2>{}
     \movie[%
     % width=\factor\textwidth,%
     % height=\factor\textheight,%
@@ -224,6 +301,14 @@
     % backend: c9ae08b
     % bigcat:  e84388e
     % start with fragment 2660 (blue)
+
+    \only<1>{
+    \begin{textblock}{3}(15,0)
+        \tiny\includegraphics[width=1cm]{fig/people/papec.png}
+
+        {\color{white}C. Pape}%
+    \end{textblock}%
+    }
 \end{frame}
 
 \begin{frame}
@@ -338,14 +423,34 @@
 \begin{frame}
     \frametitle{Cool Hacks}
     \begin{tikzpicture}[remember picture,overlay]
+        % \coordinate (offByOneCM) at ([yshift=-1cm]current page.north west);
+        % \node[fit=(current page.south east) (offByOneCM),fill=black,inner sep=0] {};
         \node[fit=(current page),fill=black,inner sep=0] {};
     \end{tikzpicture}%
 
-    \def\factor{1.0}
+    \visible<1-2>{
+    % \centering
+    \def\factor{0.9}
     \movie[%
     % width=\factor\textwidth,%
     % height=\factor\textheight,%
-    ]{\includegraphics[width=\textwidth]{vid/bigcat-synapses-placeholder.jpg}}{vid/bigcat-synapses.mp4}
+    ]{\includegraphics[width=\factor\textwidth]{vid/bigcat-synapses-placeholder.jpg}}{vid/bigcat-synapses.mp4}
+    }
+
+    \only<1>{
+        \begin{textblock}{3}(13.8,0)
+            \tiny\includegraphics[width=1cm]{fig/people/heinrichl.jpg}
+
+            {\color{white}L. Heinrich}%
+        \end{textblock}%
+        
+        \begin{textblock}{3}(15,0)
+            \tiny\includegraphics[width=1cm]{fig/people/papec.png}
+
+            {\color{white}C. Pape}%
+        \end{textblock}%
+    }
+    
 \end{frame}
 
 \begin{frame}
@@ -413,9 +518,9 @@
     \begin{textblock}{9.8}(6,0.5)
         \scriptsize%
         \begin{description}
-              \item[The Lab:]{John Bogovic, Philipp Hanslovsky, Larissa Heinrich, Shelby Morris, Igor Pisarev, Stephan Saalfeld, Neil Thistlethwaite}
-              \item[Visitors:]{Jan Funke, Constantin Pape}
-              \item[OK:]{Tobias Pietzsch}
+              \item[The Lab:]{\color{white}John Bogovic, Philipp Hanslovsky, Larissa Heinrich, Shelby Morris, Igor Pisarev, Stephan Saalfeld, Neil Thistlethwaite}
+              \item[Visitors:]{\color{white}Jan Funke, Constantin Pape}
+              \item[Cool stuff:]{\color{white}Tobias Pietzsch}
 \end{description}
 \end{textblock}
     % tbd
