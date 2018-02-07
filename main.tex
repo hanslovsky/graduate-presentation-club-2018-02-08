@@ -352,15 +352,15 @@
 \def\colorFour{green}
 \def\colorFive{magenta}
 \def\cellSize{1.4em}
-% \begin{frame}
-%     \frametitle{Painting}
-%     \subimport{fig/}{paint}
-% \end{frame}
+\begin{frame}
+    \frametitle{Painting}
+    % \subimport{fig/}{paint}
+\end{frame}
 
-% \begin{frame}
-%     \frametitle{Multi-Resolution Painting}
-%     \subimport{fig/}{paint-continued}
-% \end{frame}
+\begin{frame}
+    \frametitle{Multi-Resolution Painting}
+    % \subimport{fig/}{paint-continued}
+\end{frame}
 
 \begin{frame}
     \frametitle{3D Model Generation}
@@ -395,12 +395,19 @@
     ]{\includegraphics[width=\factor\textwidth]{vid/mesh-placeholder.jpg}}{vid/mesh.mp4}
 \end{frame}
 
-% \begin{frame}
-%     \frametitle{Mesh Generation}
-%     \centering
-%     \vspace{3em}
-%     \subimport{fig/}{mesh-cache}
-% \end{frame}
+\begin{frame}
+    \frametitle{Mesh Generation}
+    {
+        \centering
+        \vspace{3em}
+        % \subimport{fig/}{mesh-cache}
+    }
+    \begin{textblock}{3}(15,0)
+        \tiny\includegraphics[width=1cm]{fig/people/pietzsch.png}
+        
+        T. Pietzsch%
+    \end{textblock}%
+\end{frame}
 
 \begin{frame}
     \frametitle{Extensibility}
