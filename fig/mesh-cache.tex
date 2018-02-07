@@ -129,7 +129,7 @@
             }
         \end{scope}
 
-        \visible<2->{\node[font=\tiny] at (0,4.5) {Id Lists};}
+        \visible<2->{\node[font=\tiny] at (0,4.5) {$\text{block}\mapsto{[\text{id}]}$};}
 
     \end{scope}
 
@@ -141,9 +141,11 @@
             \visible<5-21> {
                 \node[fill=\colorOne,minimum width=\cellSize,minimum height=\cellSize,yshift=-25] (firstRequestForMeshes) {};
                 \draw[black,thick] ([yshift=1]firstRequestForMeshes.north) edge[->] +(0,0.5);
+                \node[anchor=east,font=\scriptsize] at (firstRequestForMeshes.west) {Retrieve relevant blocks:};
             }
             \visible<22-25> {
                 \node[fill=\colorOne,minimum width=1,minimum height=1,yshift=-25] (firstReturn) {};
+                \visible<23-25>{\node[anchor=east,font=\scriptsize] at (firstRequestForMeshes.west) {Retrieve meshes:};}
                 \node[fill=\colorOne,minimum width=1,minimum height=1,anchor=north] (secondReturn) at (firstReturn.south) {};
                 \node[font=\scriptsize,anchor=west] at (firstReturn.east) {0};
                 \node[font=\scriptsize,anchor=west] at (secondReturn.east) {1};
@@ -185,7 +187,7 @@
             }
         \end{scope}
 
-        \visible<2->{\node[font=\tiny] at (0,4.5) {Block Lists};}
+        \visible<2->{\node[font=\tiny] at (0,4.5) {$\text{id}\mapsto[\text{block}]$};}
         
     \end{scope}
 
@@ -204,6 +206,11 @@
                 \node[anchor=east,font=\scriptsize,inner sep=0] at (mesh1.west) {(};
                 \node[anchor=east,font=\scriptsize,inner sep=0] at (mesh2.west) {(};
             }
+            \visible<24>{
+                \node[rectangle,rounded corners,draw,fit=(bg-0-1-1) (bg-0-1-4)] (marchingCubes) {};
+                \draw[black,thick] (-0.2,1) edge[->,bend right=13] ([yshift=3]marchingCubes.north);
+            }
+
             
             \visible<25->{
                 % \filldraw[fill opacity=0.8,fill=blue] (0.5,0.85) -- (0.8,0.65) -- (1.05,1.05) -- cycle;
@@ -229,7 +236,7 @@
         \begin{scope}[shift={(0,3.3)}]
             \cacheBox{3}
         \end{scope}
-        \visible<2->{\node[font=\tiny] at (0,4.5) {Meshes};}
+        \visible<2->{\node[font=\tiny] at (0,4.5) {$(\text{id},\text{block})\mapsto\text{mesh}$};}
         
     \end{scope}
     
