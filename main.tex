@@ -150,16 +150,14 @@
     %       \item Potential for heavy workload tasks on client
     % \end{itemize}
 
-    \begin{tikzpicture}[overlay]
-        \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
-        \coordinate (width) at (\the\paperwidth,\the\paperheight);
-        \fill[black,anchor=west,inner sep=0] ($(0,0)-(width)$) rectangle (\the\paperwidth,\the\paperheight);
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[fit=(current page),fill=black,inner sep=0] {};
     \end{tikzpicture}%
     
     \def\factor{1.0}
     \movie[%
-    width=\factor\textwidth,%
-    height=\factor\textheight,%
+    % width=\factor\textwidth,%
+    % height=\factor\textheight,%
     ]{\includegraphics[width=\factor\textwidth]{vid/bigcat-cremi-placeholder.jpg}}{vid/bigcat-cremi-b-aligned.mov}
 \end{frame}
 
@@ -212,19 +210,16 @@
 
 \begin{frame}
     \frametitle{Agglomeration}
-
-    \begin{tikzpicture}[overlay]
-        \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
-        \coordinate (width) at (\the\paperwidth,\the\paperheight);
-        \fill[black,anchor=west,inner sep=0] ($(0,0)-(width)$) rectangle (\the\paperwidth,\the\paperheight);
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[fit=(current page),fill=black,inner sep=0] {};
     \end{tikzpicture}%
     
     \def\factor{1.0}
     \movie[%
-    width=\factor\textwidth,%
-    height=\factor\textheight,%
-    ]{}{vid/assignments.mp4}
-    % ]{\includegraphics[width=\factor\textwidth]{vid/assignments-placeholder.jpg}}{vid/assignments.mp4}
+    % width=\factor\textwidth,%
+    % height=\factor\textheight,%
+    % ]{}{vid/assignments.mp4}
+    ]{\includegraphics[width=\factor\textwidth]{vid/assignments-placeholder.jpg}}{vid/assignments.mp4}
     % show video
     % backend: c9ae08b
     % bigcat:  e84388e
@@ -253,19 +248,17 @@
 
 \begin{frame}
     \frametitle{Multi-Resolution Painting}
-
-    \begin{tikzpicture}[overlay]
-        \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
-        \coordinate (width) at (\the\paperwidth,\the\paperheight);
-        \fill[black,anchor=west,inner sep=0] ($(0,0)-(width)$) rectangle (\the\paperwidth,\the\paperheight);
+    
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[fit=(current page),fill=black,inner sep=0] {};
     \end{tikzpicture}%
 
     \def\factor{1.0}
     \movie[%
-    width=\factor\textwidth,%
-    height=\factor\textheight,%
-    ]{}{vid/paint.mp4}
-    % ]{\includegraphics[width=\factor\textwidth]{vid/paint-placeholder.jpg}}{vid/paint.mp4}
+    % width=\factor\textwidth,%
+    % height=\factor\textheight,%
+    % ]{}{vid/paint.mp4}
+    ]{\includegraphics[width=\factor\textwidth]{vid/paint-placeholder.jpg}}{vid/paint.mp4}
 \end{frame}
 
 \def\colorOne{red}
@@ -305,17 +298,15 @@
 \end{frame}
 \begin{frame}
     \frametitle{Mesh Generation}
-    \begin{tikzpicture}[overlay]
-        \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
-        \coordinate (width) at (\the\paperwidth,\the\paperheight);
-        \fill[black,anchor=west,inner sep=0] ($(0,0)-(width)$) rectangle (\the\paperwidth,\the\paperheight);
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[fit=(current page),fill=black,inner sep=0] {};
     \end{tikzpicture}%
 
     \def\factor{1.0}
     \movie[%
-    width=\factor\textwidth,%
-    height=\factor\textheight,%
-    ]{}{vid/mesh.mp4}
+    % width=\factor\textwidth,%
+    % height=\factor\textheight,%
+    ]{\includegraphics[width=\textwidth]{vid/mesh-placeholder.jpg}}{vid/mesh.mp4}
 \end{frame}
 
 % \begin{frame}
@@ -346,17 +337,15 @@
 \end{frame}
 \begin{frame}
     \frametitle{Cool Hacks}
-    \begin{tikzpicture}[overlay]
-        \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
-        \coordinate (width) at (\the\paperwidth,\the\paperheight);
-        \fill[black,anchor=west,inner sep=0] ($(0,0)-(width)$) rectangle (\the\paperwidth,\the\paperheight);
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[fit=(current page),fill=black,inner sep=0] {};
     \end{tikzpicture}%
 
     \def\factor{1.0}
     \movie[%
-    width=\factor\textwidth,%
-    height=\factor\textheight,%
-    ]{}{vid/bigcat-synapses.mp4}
+    % width=\factor\textwidth,%
+    % height=\factor\textheight,%
+    ]{\includegraphics[width=\textwidth]{vid/bigcat-synapses-placeholder.jpg}}{vid/bigcat-synapses.mp4}
 \end{frame}
 
 \begin{frame}
