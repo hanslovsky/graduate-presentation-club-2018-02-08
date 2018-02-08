@@ -50,7 +50,7 @@
 \frame{\titlepage}
 
 \begin{frame}
-    \frametitle{Circuit Reconstruction}
+    \frametitle{Circuit Reconstruction (Connectomics)}
     \begin{tikzpicture}
         \node[] (diagram) {\includegraphics[width=0.4\textwidth]{fig/circuit-diagram.pdf}};
         \node[anchor=north,font=\tiny] at (diagram.south) {https://upload.wikimedia.org/wikipedia/commons/7/76/4\_bit\_counter.svg};%% https://upload.wikimedia.org/wikipedia/commons/7/76/4_bit_counter.svg};
@@ -249,14 +249,14 @@
                                        & BigCAT & Neuroglancer\footnote{\tiny{}https://github.com/google/neuroglancer} & \visible<3->{BigCAT v2} \\
           Arbitrary cross-sections     & \gcmark & \gcmark & \visible<3->{\gcmark} \\
           Orthogonal views             & \rxmark & \gcmark & \visible<3->{\gcmark} \\
-          Semi-automatic agglomeration & \rxmark & \rxmark & \visible<3->{\gcmark} \\
+          Semi-automatic agglomeration & \gcmark & \rxmark & \visible<3->{\gcmark} \\
           Painting                     & \gcmark & \rxmark & \visible<3->{\gcmark} \\
           Multi-resolution painting    & \rxmark & \rxmark & \visible<3->{\gcmark} \\
           3D visualization             & \rxmark & \gcmark & \visible<3->{\gcmark} \\
           3D model generation          & \rxmark & \rxmark & \visible<3->{\gcmark} \\
           Client side image processing & \gcmark & \only<1>{\gcmark}\only<2->{\ycmark} & \visible<3->{\gcmark} \\
         \end{tabular}
-    \end{table}%
+    \end{table}%g
     \visible<2->{%
         \begin{tikzpicture}[overlay]%
             \begin{scope}[overlay]
@@ -285,7 +285,7 @@
                                                            & BigCAT & Neuroglancer & BigCAT v2 \\
           Arbitrary cross-sections                         & \gcmark & \gcmark & \gcmark \\
           Orthogonal views                                 & \rxmark & \gcmark & \gcmark \\
-          \rowcolor{black!20} Semi-automatic agglomeration & \rxmark & \rxmark & \gcmark \\
+          \rowcolor{black!20} Semi-automatic agglomeration & \gcmark & \rxmark & \gcmark \\
           Painting                                         & \gcmark & \rxmark & \gcmark \\
           Multi-resolution painting                        & \rxmark & \rxmark & \gcmark \\
           3D visualization                                 & \rxmark & \gcmark & \gcmark \\
@@ -340,15 +340,15 @@
     \begin{table}
         \centering
         \begin{tabular}{lccc}
-                                                           & BigCAT & Neuroglancer & BigCAT v2 \\
-          Arbitrary cross-sections                         & \gcmark & \gcmark & \gcmark \\
-          Orthogonal views                                 & \rxmark & \gcmark & \gcmark \\
-          Semi-automatic agglomeration & \rxmark & \rxmark & \gcmark \\
-          \rowcolor{black!20} Painting                     & \gcmark & \rxmark & \gcmark \\
-          \rowcolor{black!20} Multi-resolution painting    & \rxmark & \rxmark & \gcmark \\
-          3D visualization                                 & \rxmark & \gcmark & \gcmark \\
-          3D model generation                              & \rxmark & \rxmark & \gcmark \\
-          Client side image processing                     & \gcmark & \ycmark & \gcmark \\
+                                                            & BigCAT & Neuroglancer & BigCAT v2 \\
+          Arbitrary cross-sections                          & \gcmark & \gcmark & \gcmark \\
+          Orthogonal views                                  & \rxmark & \gcmark & \gcmark \\
+          Semi-automatic agglomeration                      & \gcmark & \rxmark & \gcmark \\
+          \rowcolor{black!20} Painting                      & \gcmark & \rxmark & \gcmark \\
+          \rowcolor{black!20} Multi-resolution painting     & \rxmark & \rxmark & \gcmark \\
+          3D visualization                                  & \rxmark & \gcmark & \gcmark \\
+          3D model generation                               & \rxmark & \rxmark & \gcmark \\
+          Client side image processing                      & \gcmark & \ycmark & \gcmark \\
         \end{tabular}
     \end{table}
 \end{frame}
@@ -378,7 +378,7 @@
 \def\cellSize{1.4em}
 \begin{frame}
     \frametitle{Multi-Resolution Painting}
-    \tikzexternalenable
+    % \tikzexternalenable
     \vspace{4em}
     \tikzsetnextfilename{paint}
     \subimport{fig/}{paint}
@@ -388,7 +388,7 @@
 \begin{frame}
     \frametitle{Multi-Resolution Painting}
     \vspace{4em}
-    \tikzexternalenable
+    % \tikzexternalenable
     \tikzsetnextfilename{paint-continued}
     \subimport{fig/}{paint-continued}
     \tikzexternaldisable
@@ -404,7 +404,7 @@
                                                   & BigCAT & Neuroglancer & BigCAT v2 \\
           Arbitrary cross-sections                & \gcmark & \gcmark & \gcmark \\
           Orthogonal views                        & \rxmark & \gcmark & \gcmark \\
-          Semi-automatic agglomeration            & \rxmark & \rxmark & \gcmark \\
+          Semi-automatic agglomeration            & \gcmark & \rxmark & \gcmark \\
           Painting                                & \gcmark & \rxmark & \gcmark \\
           Multi-resolution painting               & \rxmark & \rxmark & \gcmark \\
           \rowcolor{black!20} 3D visualization    & \rxmark & \gcmark & \gcmark \\
@@ -432,7 +432,7 @@
     {
         \centering
         \vspace{3em}
-        \tikzexternalenable
+        % \tikzexternalenable
         \tikzsetnextfilename{mesh-cache}
         \subimport{fig/}{mesh-cache}
         \tikzexternaldisable
@@ -456,7 +456,7 @@
                                                            & BigCAT & Neuroglancer & BigCAT v2 \\
           Arbitrary cross-sections                         & \gcmark & \gcmark & \gcmark \\
           Orthogonal views                                 & \rxmark & \gcmark & \gcmark \\
-          Semi-automatic agglomeration                     & \rxmark & \rxmark & \gcmark \\
+          Semi-automatic agglomeration                     & \gcmark & \rxmark & \gcmark \\
           Painting                                         & \gcmark & \rxmark & \gcmark \\
           Multi-resolution painting                        & \rxmark & \rxmark & \gcmark \\
           3D visualization                                 & \rxmark & \gcmark & \gcmark \\
@@ -513,7 +513,7 @@
               3D model generation          & \rxmark & \rxmark & \gcmark \\ 
               Painting                     & \gcmark & \rxmark & \gcmark \\ 
               Multi-resolution painting         & \rxmark & \rxmark & \gcmark \\ 
-              Semi-automatic agglomeration & \rxmark & \rxmark & \gcmark \\ 
+              Semi-automatic agglomeration & \gcmark & \rxmark & \gcmark \\ 
               Extensibility                & \rxmark & \ycmark & \gcmark \\
             \end{tabular}
         \end{table}
@@ -529,7 +529,7 @@
               3D model generation          & \rxmark & \rxmark & \ycmark \\ 
               Painting                     & \gcmark & \rxmark & \gcmark \\ 
               Multi-resolution painting         & \rxmark & \rxmark & \ycmark \\ 
-              Semi-automatic agglomeration & \rxmark & \rxmark & \ycmark \\ 
+              Semi-automatic agglomeration & \gcmark & \rxmark & \ycmark \\ 
               Extensibility                & \rxmark & \ycmark & \gcmark \\
             \end{tabular}
         \end{table}
@@ -570,7 +570,7 @@
               \item[The Lab:]{John Bogovic, Ala Haddad, Larissa Heinrich, Shelby Morris, Igor Pisarev, Stephan Saalfeld, Neil Thistlethwaite}
               \item[Visitors:]{Jan Funke, Constantin Pape}
               \item[TEM:]{Davi Bock, Goran Ceric, Richard Fetter, Nirmala Iyer, Bill Karsh, Khaled Khairy, Robert Lines, Daniel Milkie, Eric Perlman, John Price, Cam G. Robinson, Eric Trautman, Zhihao Zheng}
-              \item[Code and Spirit:]{Vanessa Leite, Tobias Pietzsch, Srini Turaga}
+              \item[Code and Data:]{Vanessa Leite, Tobias Pietzsch, Srini Turaga}
         \end{description}
     \end{textblock}
 
